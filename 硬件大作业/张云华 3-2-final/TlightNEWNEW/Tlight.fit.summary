@@ -1,0 +1,11 @@
+Fitter Status : Successful - Wed Jun 19 20:09:12 2024
+Quartus II Version : 6.0 Build 202 06/20/2006 SP 1 SJ Full Version
+Revision Name : Tlight
+Top-level Entity Name : Tlingt
+Family : ACEX1K
+Device : EP1K30TC144-3
+Timing Models : Final
+Total logic elements : 118 / 1,728 ( 7 % )
+Total pins : 41 / 102 ( 40 % )
+Total memory bits : 0 / 24,576 ( 0 % )
+Total PLLs : 0

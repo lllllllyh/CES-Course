@@ -1,0 +1,460 @@
+Analysis & Synthesis report for Tlight
+Sun Jun 17 05:08:50 2012
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. User-Specified and Inferred Latches
+  8. General Register Statistics
+  9. Parameter Settings for User Entity Instance: Count:inst22|74283:inst
+ 10. Parameter Settings for User Entity Instance: Count:inst22|74283:inst1
+ 11. Parameter Settings for User Entity Instance: Count:inst22|74283:inst8
+ 12. Parameter Settings for User Entity Instance: Count:inst22|74283:inst6
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                ;
++-----------------------------+-----------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Sun Jun 17 05:08:50 2012         ;
+; Quartus II Version          ; 6.0 Build 202 06/20/2006 SP 1 SJ Full Version ;
+; Revision Name               ; Tlight                                        ;
+; Top-level Entity Name       ; Tlingt                                        ;
+; Family                      ; ACEX1K                                        ;
+; Total logic elements        ; 112                                           ;
+; Total pins                  ; 39                                            ;
+; Total memory bits           ; 0                                             ;
+; Total PLLs                  ; 0                                             ;
++-----------------------------+-----------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                              ;
++------------------------------------------------------------+---------------+---------------+
+; Option                                                     ; Setting       ; Default Value ;
++------------------------------------------------------------+---------------+---------------+
+; Device                                                     ; EP1K30TC144-3 ;               ;
+; Top-level entity name                                      ; Tlingt        ; Tlight        ;
+; Family name                                                ; ACEX1K        ; Stratix       ;
+; Use smart compilation                                      ; Off           ; Off           ;
+; Create Debugging Nodes for IP Cores                        ; Off           ; Off           ;
+; Preserve fewer node names                                  ; On            ; On            ;
+; Disable OpenCore Plus hardware evaluation                  ; Off           ; Off           ;
+; Verilog Version                                            ; Verilog_2001  ; Verilog_2001  ;
+; VHDL Version                                               ; VHDL93        ; VHDL93        ;
+; State Machine Processing                                   ; Auto          ; Auto          ;
+; Extract Verilog State Machines                             ; On            ; On            ;
+; Extract VHDL State Machines                                ; On            ; On            ;
+; Add Pass-Through Logic to Inferred RAMs                    ; On            ; On            ;
+; NOT Gate Push-Back                                         ; On            ; On            ;
+; Power-Up Don't Care                                        ; On            ; On            ;
+; Remove Redundant Logic Cells                               ; Off           ; Off           ;
+; Remove Duplicate Registers                                 ; On            ; On            ;
+; Ignore CARRY Buffers                                       ; Off           ; Off           ;
+; Ignore CASCADE Buffers                                     ; Off           ; Off           ;
+; Ignore GLOBAL Buffers                                      ; Off           ; Off           ;
+; Ignore ROW GLOBAL Buffers                                  ; Off           ; Off           ;
+; Ignore LCELL Buffers                                       ; Off           ; Off           ;
+; Ignore SOFT Buffers                                        ; On            ; On            ;
+; Limit AHDL Integers to 32 Bits                             ; Off           ; Off           ;
+; Auto Implement in ROM                                      ; Off           ; Off           ;
+; Optimization Technique -- FLEX 10K/10KE/10KA/ACEX 1K       ; Area          ; Area          ;
+; Carry Chain Length -- FLEX 10K                             ; 32            ; 32            ;
+; Cascade Chain Length                                       ; 2             ; 2             ;
+; Auto Carry Chains                                          ; On            ; On            ;
+; Auto Open-Drain Pins                                       ; On            ; On            ;
+; Remove Duplicate Logic                                     ; On            ; On            ;
+; Auto ROM Replacement                                       ; On            ; On            ;
+; Auto RAM Replacement                                       ; On            ; On            ;
+; Auto Clock Enable Replacement                              ; On            ; On            ;
+; Auto Resource Sharing                                      ; Off           ; Off           ;
+; Allow Any RAM Size For Recognition                         ; Off           ; Off           ;
+; Allow Any ROM Size For Recognition                         ; Off           ; Off           ;
+; Ignore translate_off and translate_on Synthesis Directives ; Off           ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report         ; On            ; On            ;
+; HDL message level                                          ; Level2        ; Level2        ;
++------------------------------------------------------------+---------------+---------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                      ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+
+; Tlingt.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/Tlingt.bdf   ;
+; TL.bdf                           ; yes             ; Other                              ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/TL.bdf       ;
+; Q.bdf                            ; yes             ; Other                              ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/Q.bdf        ;
+; 7476.bdf                         ; yes             ; Megafunction                       ; c:/altera/quartus60/libraries/others/maxplus2/7476.bdf                            ;
+; 74190.bdf                        ; yes             ; Megafunction                       ; c:/altera/quartus60/libraries/others/maxplus2/74190.bdf                           ;
+; choseGY.bdf                      ; yes             ; Other                              ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/choseGY.bdf  ;
+; chosesGY.bdf                     ; yes             ; Other                              ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/chosesGY.bdf ;
+; 74373.bdf                        ; yes             ; Megafunction                       ; c:/altera/quartus60/libraries/others/maxplus2/74373.bdf                           ;
+; 74138.bdf                        ; yes             ; Megafunction                       ; c:/altera/quartus60/libraries/others/maxplus2/74138.bdf                           ;
+; choseR.bdf                       ; yes             ; Other                              ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/choseR.bdf   ;
+; Count.bdf                        ; yes             ; Other                              ; C:/Documents and Settings/Administrator/桌面/张云华 2-2/TlightNEWNEW/Count.bdf    ;
+; 74283.tdf                        ; yes             ; Megafunction                       ; c:/altera/quartus60/libraries/others/maxplus2/74283.tdf                           ;
+; aglobal.inc                      ; yes             ; Other                              ; c:/altera/quartus60/libraries/megafunctions/aglobal.inc                           ;
+; f74283.bdf                       ; yes             ; Megafunction                       ; c:/altera/quartus60/libraries/others/maxplus2/f74283.bdf                          ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++-----------------------------------+----------------------+
+; Resource                          ; Usage                ;
++-----------------------------------+----------------------+
+; Total logic elements              ; 112                  ;
+; Total combinational functions     ; 112                  ;
+;     -- Total 4-input functions    ; 47                   ;
+;     -- Total 3-input functions    ; 40                   ;
+;     -- Total 2-input functions    ; 15                   ;
+;     -- Total 1-input functions    ; 8                    ;
+;     -- Total 0-input functions    ; 2                    ;
+; Combinational cells for routing   ; 0                    ;
+; Total registers                   ; 10                   ;
+; Total logic cells in carry chains ; 10                   ;
+; I/O pins                          ; 39                   ;
+; Maximum fan-out node              ; Q:inst12|7476:inst|8 ;
+; Maximum fan-out                   ; 29                   ;
+; Total fan-out                     ; 404                  ;
+; Average fan-out                   ; 2.68                 ;
++-----------------------------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                             ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                         ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------+
+; |Tlingt                    ; 112 (12)    ; 10           ; 0           ; 39   ; 102 (12)     ; 0 (0)             ; 10 (0)           ; 10 (0)          ; 0 (0)      ; |Tlingt                                     ;
+;    |74138:inst67|          ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74138:inst67                        ;
+;    |74190:inst18|          ; 9 (9)       ; 4            ; 0           ; 0    ; 5 (5)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74190:inst18                        ;
+;    |74190:inst5|           ; 8 (8)       ; 4            ; 0           ; 0    ; 4 (4)        ; 0 (0)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74190:inst5                         ;
+;    |74373:inst94|          ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74373:inst94                        ;
+;    |74373:inst95|          ; 7 (7)       ; 0            ; 0           ; 0    ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74373:inst95                        ;
+;    |74373:inst96|          ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74373:inst96                        ;
+;    |74373:inst97|          ; 7 (7)       ; 0            ; 0           ; 0    ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|74373:inst97                        ;
+;    |Count:inst22|          ; 34 (2)      ; 0            ; 0           ; 0    ; 34 (2)       ; 0 (0)             ; 0 (0)            ; 10 (2)          ; 0 (0)      ; |Tlingt|Count:inst22                        ;
+;       |74283:inst1|        ; 11 (0)      ; 0            ; 0           ; 0    ; 11 (0)       ; 0 (0)             ; 0 (0)            ; 5 (0)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst1            ;
+;          |f74283:sub|      ; 11 (11)     ; 0            ; 0           ; 0    ; 11 (11)      ; 0 (0)             ; 0 (0)            ; 5 (5)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst1|f74283:sub ;
+;       |74283:inst6|        ; 6 (0)       ; 0            ; 0           ; 0    ; 6 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst6            ;
+;          |f74283:sub|      ; 6 (6)       ; 0            ; 0           ; 0    ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst6|f74283:sub ;
+;       |74283:inst8|        ; 5 (0)       ; 0            ; 0           ; 0    ; 5 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst8            ;
+;          |f74283:sub|      ; 5 (5)       ; 0            ; 0           ; 0    ; 5 (5)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst8|f74283:sub ;
+;       |74283:inst|         ; 10 (0)      ; 0            ; 0           ; 0    ; 10 (0)       ; 0 (0)             ; 0 (0)            ; 3 (0)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst             ;
+;          |f74283:sub|      ; 10 (10)     ; 0            ; 0           ; 0    ; 10 (10)      ; 0 (0)             ; 0 (0)            ; 3 (3)           ; 0 (0)      ; |Tlingt|Count:inst22|74283:inst|f74283:sub  ;
+;    |Q:inst12|              ; 2 (0)       ; 2            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 2 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|Q:inst12                            ;
+;       |7476:inst|          ; 2 (2)       ; 2            ; 0           ; 0    ; 0 (0)        ; 0 (0)             ; 2 (2)            ; 0 (0)           ; 0 (0)      ; |Tlingt|Q:inst12|7476:inst                  ;
+;    |TL:inst|               ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|TL:inst                             ;
+;    |choseGY:inst46|        ; 10 (0)      ; 0            ; 0           ; 0    ; 10 (0)       ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46                      ;
+;       |chosesGY:inst1|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst1       ;
+;       |chosesGY:inst2|     ; 2 (2)       ; 0            ; 0           ; 0    ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst2       ;
+;       |chosesGY:inst3|     ; 2 (2)       ; 0            ; 0           ; 0    ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst3       ;
+;       |chosesGY:inst4|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst4       ;
+;       |chosesGY:inst5|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst5       ;
+;       |chosesGY:inst6|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst6       ;
+;       |chosesGY:inst7|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst7       ;
+;       |chosesGY:inst8|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst46|chosesGY:inst8       ;
+;    |choseGY:inst49|        ; 3 (0)       ; 0            ; 0           ; 0    ; 3 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst49                      ;
+;       |chosesGY:inst2|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst49|chosesGY:inst2       ;
+;       |chosesGY:inst3|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst49|chosesGY:inst3       ;
+;       |chosesGY:inst7|     ; 1 (1)       ; 0            ; 0           ; 0    ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseGY:inst49|chosesGY:inst7       ;
+;    |choseR:inst57|         ; 8 (8)       ; 0            ; 0           ; 0    ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseR:inst57                       ;
+;    |choseR:inst58|         ; 8 (8)       ; 0            ; 0           ; 0    ; 8 (8)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Tlingt|choseR:inst58                       ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------------------------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; 74373:inst95|12                                     ; inst39              ; yes                    ;
+; 74373:inst94|12                                     ; inst39              ; yes                    ;
+; 74373:inst95|13                                     ; inst39              ; yes                    ;
+; 74373:inst94|13                                     ; inst39              ; yes                    ;
+; 74373:inst95|14                                     ; inst39              ; yes                    ;
+; 74373:inst94|15                                     ; inst39              ; yes                    ;
+; 74373:inst95|15                                     ; inst39              ; yes                    ;
+; 74373:inst94|14                                     ; inst39              ; yes                    ;
+; 74373:inst95|16                                     ; inst39              ; yes                    ;
+; 74373:inst94|16                                     ; inst39              ; yes                    ;
+; 74373:inst95|17                                     ; inst39              ; yes                    ;
+; 74373:inst94|17                                     ; inst39              ; yes                    ;
+; 74373:inst95|18                                     ; inst39              ; yes                    ;
+; 74373:inst94|18                                     ; inst39              ; yes                    ;
+; 74373:inst95|19                                     ; inst39              ; yes                    ;
+; 74373:inst94|19                                     ; inst39              ; yes                    ;
+; 74373:inst97|12                                     ; inst43              ; yes                    ;
+; 74373:inst96|12                                     ; inst43              ; yes                    ;
+; 74373:inst97|13                                     ; inst43              ; yes                    ;
+; 74373:inst96|13                                     ; inst43              ; yes                    ;
+; 74373:inst97|14                                     ; inst43              ; yes                    ;
+; 74373:inst96|15                                     ; inst43              ; yes                    ;
+; 74373:inst97|15                                     ; inst43              ; yes                    ;
+; 74373:inst96|14                                     ; inst43              ; yes                    ;
+; 74373:inst97|16                                     ; inst43              ; yes                    ;
+; 74373:inst96|16                                     ; inst43              ; yes                    ;
+; 74373:inst97|17                                     ; inst43              ; yes                    ;
+; 74373:inst96|17                                     ; inst43              ; yes                    ;
+; 74373:inst97|18                                     ; inst43              ; yes                    ;
+; 74373:inst96|18                                     ; inst43              ; yes                    ;
+; 74373:inst97|19                                     ; inst43              ; yes                    ;
+; 74373:inst96|19                                     ; inst43              ; yes                    ;
+; Number of user-specified and inferred latches = 32  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 10    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 8     ;
+; Number of registers using Clock Enable       ; 5     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Count:inst22|74283:inst ;
++------------------------+--------+------------------------------------+
+; Parameter Name         ; Value  ; Type                               ;
++------------------------+--------+------------------------------------+
+; DEVICE_FAMILY          ; ACEX1K ; Untyped                            ;
+; AUTO_CARRY_CHAINS      ; ON     ; AUTO_CARRY                         ;
+; IGNORE_CARRY_BUFFERS   ; OFF    ; IGNORE_CARRY                       ;
+; AUTO_CASCADE_CHAINS    ; ON     ; AUTO_CASCADE                       ;
+; IGNORE_CASCADE_BUFFERS ; OFF    ; IGNORE_CASCADE                     ;
++------------------------+--------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Count:inst22|74283:inst1 ;
++------------------------+--------+-------------------------------------+
+; Parameter Name         ; Value  ; Type                                ;
++------------------------+--------+-------------------------------------+
+; DEVICE_FAMILY          ; ACEX1K ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON     ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF    ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON     ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF    ; IGNORE_CASCADE                      ;
++------------------------+--------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Count:inst22|74283:inst8 ;
++------------------------+--------+-------------------------------------+
+; Parameter Name         ; Value  ; Type                                ;
++------------------------+--------+-------------------------------------+
+; DEVICE_FAMILY          ; ACEX1K ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON     ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF    ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON     ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF    ; IGNORE_CASCADE                      ;
++------------------------+--------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Count:inst22|74283:inst6 ;
++------------------------+--------+-------------------------------------+
+; Parameter Name         ; Value  ; Type                                ;
++------------------------+--------+-------------------------------------+
+; DEVICE_FAMILY          ; ACEX1K ; Untyped                             ;
+; AUTO_CARRY_CHAINS      ; ON     ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF    ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS    ; ON     ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF    ; IGNORE_CASCADE                      ;
++------------------------+--------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Jun 17 05:08:49 2012
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Tlight -c Tlight
+Info: Found 1 design units, including 1 entities, in source file Tlingt.bdf
+    Info: Found entity 1: Tlingt
+Info: Elaborating entity "Tlingt" for the top level hierarchy
+Warning: Port "G1" of type 74138 and instance "inst67" is missing source signal
+Warning: Using design file TL.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: TL
+Info: Elaborating entity "TL" for hierarchy "TL:inst"
+Warning: Using design file Q.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: Q
+Info: Elaborating entity "Q" for hierarchy "Q:inst12"
+Warning: Port "1PRN" of type 7476 and instance "inst" is missing source signal
+Warning: Port "2PRN" of type 7476 and instance "inst" is missing source signal
+Warning: Port "1CLRN" of type 7476 and instance "inst" is missing source signal
+Warning: Port "2CLRN" of type 7476 and instance "inst" is missing source signal
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/quartus60/libraries/others/maxplus2/7476.bdf
+    Info: Found entity 1: 7476
+Info: Elaborating entity "7476" for hierarchy "Q:inst12|7476:inst"
+Info: Elaborated megafunction instantiation "Q:inst12|7476:inst"
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/quartus60/libraries/others/maxplus2/74190.bdf
+    Info: Found entity 1: 74190
+Info: Elaborating entity "74190" for hierarchy "74190:inst5"
+Info: Elaborated megafunction instantiation "74190:inst5"
+Warning: Using design file choseGY.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: choseGY
+Info: Elaborating entity "choseGY" for hierarchy "choseGY:inst46"
+Warning: Using design file chosesGY.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: chosesGY
+Info: Elaborating entity "chosesGY" for hierarchy "choseGY:inst46|chosesGY:inst7"
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/quartus60/libraries/others/maxplus2/74373.bdf
+    Info: Found entity 1: 74373
+Info: Elaborating entity "74373" for hierarchy "74373:inst94"
+Info: Elaborated megafunction instantiation "74373:inst94"
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/quartus60/libraries/others/maxplus2/74138.bdf
+    Info: Found entity 1: 74138
+Info: Elaborating entity "74138" for hierarchy "74138:inst67"
+Info: Elaborated megafunction instantiation "74138:inst67"
+Warning: Using design file choseR.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: choseR
+Info: Elaborating entity "choseR" for hierarchy "choseR:inst57"
+Warning: Using design file Count.bdf, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: Count
+Info: Elaborating entity "Count" for hierarchy "Count:inst22"
+Warning: Port "CIN" of type 74283 and instance "inst1" is missing source signal
+Warning: Port "CIN" of type 74283 and instance "inst8" is missing source signal
+Warning: Port "CIN" of type 74283 and instance "inst6" is missing source signal
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/quartus60/libraries/others/maxplus2/74283.tdf
+    Info: Found entity 1: 74283
+Info: Elaborating entity "74283" for hierarchy "Count:inst22|74283:inst"
+Info: Elaborated megafunction instantiation "Count:inst22|74283:inst"
+Info: Found 1 design units, including 1 entities, in source file ../../../../../altera/quartus60/libraries/others/maxplus2/f74283.bdf
+    Info: Found entity 1: f74283
+Info: Elaborating entity "f74283" for hierarchy "Count:inst22|74283:inst|f74283:sub"
+Info: Elaborated megafunction instantiation "Count:inst22|74283:inst|f74283:sub", which is child of megafunction instantiation "Count:inst22|74283:inst"
+Info: Elaborating entity "74283" for hierarchy "Count:inst22|74283:inst1"
+Info: Elaborated megafunction instantiation "Count:inst22|74283:inst1"
+Info: Elaborating entity "74283" for hierarchy "Count:inst22|74283:inst8"
+Info: Elaborated megafunction instantiation "Count:inst22|74283:inst8"
+Info: Ignored 30 buffer(s)
+    Info: Ignored 30 SOFT buffer(s)
+Warning: Converting TRI node "74373:inst95|67" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|67" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|68" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|68" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|69" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|70" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|70" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|69" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|71" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|71" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|72" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|72" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|73" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|73" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst95|74" that feeds logic to an OR gate
+Warning: Converting TRI node "74373:inst94|74" that feeds logic to an OR gate
+Warning: Removed always-enabled tri-state buffer 74373:inst97|67 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|67 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|68 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|68 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|69 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|70 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|70 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|69 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|71 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|71 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|72 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|72 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|73 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|73 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst97|74 feeding logic, open-drain buffer, or output pin
+Warning: Removed always-enabled tri-state buffer 74373:inst96|74 feeding logic, open-drain buffer, or output pin
+Info: Duplicate LATCH primitives merged into single LATCH primitive
+    Info: Duplicate LATCH primitive "74373:inst94|12" merged with LATCH primitive "74373:inst95|12"
+    Info: Duplicate LATCH primitive "74373:inst94|13" merged with LATCH primitive "74373:inst95|13"
+    Info: Duplicate LATCH primitive "74373:inst94|14" merged with LATCH primitive "74373:inst95|14"
+    Info: Duplicate LATCH primitive "74373:inst95|15" merged with LATCH primitive "74373:inst94|15"
+    Info: Duplicate LATCH primitive "74373:inst94|16" merged with LATCH primitive "74373:inst95|16"
+    Info: Duplicate LATCH primitive "74373:inst94|17" merged with LATCH primitive "74373:inst95|17"
+    Info: Duplicate LATCH primitive "74373:inst94|18" merged with LATCH primitive "74373:inst95|18"
+    Info: Duplicate LATCH primitive "74373:inst94|19" merged with LATCH primitive "74373:inst95|19"
+    Info: Duplicate LATCH primitive "74373:inst96|12" merged with LATCH primitive "74373:inst97|12"
+    Info: Duplicate LATCH primitive "74373:inst96|13" merged with LATCH primitive "74373:inst97|13"
+    Info: Duplicate LATCH primitive "74373:inst96|14" merged with LATCH primitive "74373:inst97|14"
+    Info: Duplicate LATCH primitive "74373:inst97|15" merged with LATCH primitive "74373:inst96|15"
+    Info: Duplicate LATCH primitive "74373:inst96|16" merged with LATCH primitive "74373:inst97|16"
+    Info: Duplicate LATCH primitive "74373:inst96|17" merged with LATCH primitive "74373:inst97|17"
+    Info: Duplicate LATCH primitive "74373:inst96|18" merged with LATCH primitive "74373:inst97|18"
+    Info: Duplicate LATCH primitive "74373:inst96|19" merged with LATCH primitive "74373:inst97|19"
+Info: Converted 1 single input CARRY primitives to CARRY_SUM primitives
+Warning: Ignored 7 CARRY_SUM primitives
+    Warning: Ignored 1 CARRY_SUM primitives -- cannot place fan-in logic in single logic cell
+        Warning: Can't place logic feeding CARRY_SUM primitive "Count:inst22|74283:inst6|f74283:sub|90~2" in single logic cell
+            Warning: Node "Count:inst22|74283:inst|f74283:sub|108~8" of type CARRY_SUM
+            Warning: Node "Count:inst22|74283:inst6|f74283:sub|89~4" of type CARRY_SUM
+    Warning: Ignored 6 CARRY_SUM primitive(s) -- cannot place fan-out logic in single logic cell
+        Warning: Can't place logic fed by CARRY_SUM primitive "Count:inst22|74283:inst|f74283:sub|90~3" into a single logic cell
+            Warning: Node "Count:inst22|74283:inst|f74283:sub|82~40" of type LUT
+            Warning: Node "Count:inst22|74283:inst|f74283:sub|107~8" of type LUT
+        Warning: Can't place logic fed by CARRY_SUM primitive "Count:inst22|74283:inst8|f74283:sub|89~4" into a single logic cell
+            Warning: Node "Count:inst22|74283:inst8|f74283:sub|80" of type LUT
+            Warning: Node "Count:inst22|74283:inst8|f74283:sub|90~2" of type CARRY_SUM
+        Warning: Can't place logic fed by CARRY_SUM primitive "Count:inst22|74283:inst1|f74283:sub|90~3" into a single logic cell
+            Warning: Node "Count:inst22|74283:inst1|f74283:sub|82~40" of type LUT
+            Warning: Node "Count:inst22|74283:inst1|f74283:sub|107~8" of type LUT
+        Warning: Can't place logic fed by CARRY_SUM primitive "Count:inst22|74283:inst6|f74283:sub|89~4" into a single logic cell
+            Warning: Node "Count:inst22|74283:inst6|f74283:sub|80" of type LUT
+            Warning: Node "Count:inst22|74283:inst6|f74283:sub|106~13" of type LUT
+        Warning: Can't place logic fed by CARRY_SUM primitive "Count:inst22|74283:inst|f74283:sub|108~8" into a single logic cell
+            Warning: Node "Count:inst22|74283:inst|f74283:sub|88~4" of type CARRY_SUM
+            Warning: Node "Count:inst22|74283:inst6|f74283:sub|106~13" of type LUT
+        Warning: Can't place logic fed by CARRY_SUM primitive "Count:inst22|74283:inst|f74283:sub|108~4" into a single logic cell
+            Warning: Node "Count:inst22|74283:inst|f74283:sub|108~9" of type LUT
+            Warning: Node "Count:inst22|74283:inst|f74283:sub|108~10" of type LUT
+Info: Found the following redundant logic cells in design
+    Info: Logic cell "Count:inst22|74283:inst6|f74283:sub|89~14"
+Info: Implemented 151 device resources after synthesis - the final resource count might be different
+    Info: Implemented 17 input pins
+    Info: Implemented 22 output pins
+    Info: Implemented 112 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 70 warnings
+    Info: Processing ended: Sun Jun 17 05:08:50 2012
+    Info: Elapsed time: 00:00:01
+
+

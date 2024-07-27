@@ -1,0 +1,1366 @@
+Timing Analyzer report for Tlight
+Sun Jun 17 05:08:58 2012
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'CLK'
+  6. Clock Setup: 'CLRN'
+  7. Clock Setup: 'C'
+  8. Clock Setup: 'A'
+  9. Clock Setup: 'B'
+ 10. Clock Hold: 'CLK'
+ 11. Clock Hold: 'CLRN'
+ 12. Clock Hold: 'C'
+ 13. Clock Hold: 'A'
+ 14. Clock Hold: 'B'
+ 15. tsu
+ 16. tco
+ 17. tpd
+ 18. th
+ 19. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2006 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                         ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------+----------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                 ; To                   ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------+----------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 4.600 ns                         ; B                    ; 74190:inst18|51      ; --         ; CLK      ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 83.900 ns                        ; Q:inst12|7476:inst|8 ; NS7                  ; CLRN       ; --       ; 0            ;
+; Worst-case tpd               ; N/A                                      ; None          ; 24.800 ns                        ; STOPNSG              ; NS3                  ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 6.300 ns                         ; C                    ; 74190:inst5|48       ; --         ; CLRN     ; 0            ;
+; Clock Setup: 'CLK'           ; N/A                                      ; None          ; 81.30 MHz ( period = 12.300 ns ) ; 74190:inst5|50       ; 74190:inst5|49       ; CLK        ; CLK      ; 0            ;
+; Clock Setup: 'CLRN'          ; N/A                                      ; None          ; 84.03 MHz ( period = 11.900 ns ) ; 74190:inst5|50       ; 74190:inst5|49       ; CLRN       ; CLRN     ; 0            ;
+; Clock Setup: 'B'             ; N/A                                      ; None          ; 166.67 MHz ( period = 6.000 ns ) ; 74190:inst5|50       ; 74190:inst5|49       ; B          ; B        ; 0            ;
+; Clock Setup: 'A'             ; N/A                                      ; None          ; 166.67 MHz ( period = 6.000 ns ) ; 74190:inst5|50       ; 74190:inst5|49       ; A          ; A        ; 0            ;
+; Clock Setup: 'C'             ; N/A                                      ; None          ; 166.67 MHz ( period = 6.000 ns ) ; 74190:inst5|50       ; 74190:inst5|49       ; C          ; C        ; 0            ;
+; Clock Hold: 'CLK'            ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; CLK        ; CLK      ; 16           ;
+; Clock Hold: 'CLRN'           ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; CLRN       ; CLRN     ; 16           ;
+; Clock Hold: 'C'              ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; C          ; C        ; 3            ;
+; Clock Hold: 'A'              ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; A          ; A        ; 3            ;
+; Clock Hold: 'B'              ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; B          ; B        ; 3            ;
+; Total number of failed paths ;                                          ;               ;                                  ;                      ;                      ;            ;          ; 41           ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------+----------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP1K30TC144-3      ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
+; Default hold multicycle                               ; Same As Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                         ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLK             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; CLRN            ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; C               ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; A               ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; B               ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; chose           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLK'                                                                                                                                                                                               ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 81.30 MHz ( period = 12.300 ns )               ; 74190:inst5|50       ; 74190:inst5|50       ; CLK        ; CLK      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 81.30 MHz ( period = 12.300 ns )               ; 74190:inst5|50       ; 74190:inst5|49       ; CLK        ; CLK      ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 82.64 MHz ( period = 12.100 ns )               ; 74190:inst5|49       ; 74190:inst5|50       ; CLK        ; CLK      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 82.64 MHz ( period = 12.100 ns )               ; 74190:inst5|49       ; 74190:inst5|49       ; CLK        ; CLK      ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 88.50 MHz ( period = 11.300 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; CLK        ; CLK      ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; 90.09 MHz ( period = 11.100 ns )               ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; CLK        ; CLK      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 90.09 MHz ( period = 11.100 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; CLK        ; CLK      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 94.34 MHz ( period = 10.600 ns )               ; 74190:inst5|48       ; 74190:inst5|51       ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; 94.34 MHz ( period = 10.600 ns )               ; 74190:inst5|50       ; 74190:inst5|51       ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns )               ; 74190:inst5|49       ; 74190:inst5|51       ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns )               ; 74190:inst5|51       ; 74190:inst5|50       ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns )               ; 74190:inst5|51       ; 74190:inst5|49       ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; 98.04 MHz ( period = 10.200 ns )               ; 74190:inst5|48       ; 74190:inst5|50       ; CLK        ; CLK      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; 98.04 MHz ( period = 10.200 ns )               ; 74190:inst5|48       ; 74190:inst5|49       ; CLK        ; CLK      ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; 117.65 MHz ( period = 8.500 ns )               ; 74190:inst5|51       ; 74190:inst5|51       ; CLK        ; CLK      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 117.65 MHz ( period = 8.500 ns )               ; 74190:inst5|48       ; 74190:inst5|48       ; CLK        ; CLK      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 131.58 MHz ( period = 7.600 ns )               ; 74190:inst18|48      ; 74190:inst18|51      ; CLK        ; CLK      ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; 74190:inst18|48      ; 74190:inst18|50      ; CLK        ; CLK      ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; 74190:inst18|48      ; 74190:inst18|49      ; CLK        ; CLK      ; None                        ; None                      ; 3.500 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|50      ; 74190:inst18|51      ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|51      ; 74190:inst18|50      ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|50      ; 74190:inst18|50      ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|51      ; 74190:inst18|49      ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|50      ; 74190:inst18|49      ; CLK        ; CLK      ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|49      ; 74190:inst18|51      ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|49      ; 74190:inst18|50      ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|49      ; 74190:inst18|49      ; CLK        ; CLK      ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|51      ; 74190:inst18|51      ; CLK        ; CLK      ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|48      ; 74190:inst18|48      ; CLK        ; CLK      ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLRN'                                                                                                                                                                                              ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 84.03 MHz ( period = 11.900 ns )               ; 74190:inst5|50       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 84.03 MHz ( period = 11.900 ns )               ; 74190:inst5|50       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; 74190:inst5|49       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 85.47 MHz ( period = 11.700 ns )               ; 74190:inst5|49       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 91.74 MHz ( period = 10.900 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; CLRN       ; CLRN     ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns )               ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; CLRN       ; CLRN     ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 93.46 MHz ( period = 10.700 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; CLRN       ; CLRN     ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 98.04 MHz ( period = 10.200 ns )               ; 74190:inst5|48       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; 98.04 MHz ( period = 10.200 ns )               ; 74190:inst5|50       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns )              ; 74190:inst5|49       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns )              ; 74190:inst5|51       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; 100.00 MHz ( period = 10.000 ns )              ; 74190:inst5|51       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; 102.04 MHz ( period = 9.800 ns )               ; 74190:inst5|48       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; 102.04 MHz ( period = 9.800 ns )               ; 74190:inst5|48       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; 123.46 MHz ( period = 8.100 ns )               ; 74190:inst5|51       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 123.46 MHz ( period = 8.100 ns )               ; 74190:inst5|48       ; 74190:inst5|48       ; CLRN       ; CLRN     ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; 131.58 MHz ( period = 7.600 ns )               ; 74190:inst18|48      ; 74190:inst18|51      ; CLRN       ; CLRN     ; None                        ; None                      ; 5.600 ns                ;
+; N/A   ; 135.14 MHz ( period = 7.400 ns )               ; 74190:inst18|48      ; 74190:inst18|50      ; CLRN       ; CLRN     ; None                        ; None                      ; 5.400 ns                ;
+; N/A   ; 181.82 MHz ( period = 5.500 ns )               ; 74190:inst18|48      ; 74190:inst18|49      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.500 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|50      ; 74190:inst18|51      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|51      ; 74190:inst18|50      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|50      ; 74190:inst18|50      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|51      ; 74190:inst18|49      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|50      ; 74190:inst18|49      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|49      ; 74190:inst18|51      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|49      ; 74190:inst18|50      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|49      ; 74190:inst18|49      ; CLRN       ; CLRN     ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|51      ; 74190:inst18|51      ; CLRN       ; CLRN     ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst18|48      ; 74190:inst18|48      ; CLRN       ; CLRN     ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'C'                                                                                                                                                                                                 ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; 74190:inst5|50       ; 74190:inst5|50       ; C          ; C        ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; 74190:inst5|50       ; 74190:inst5|49       ; C          ; C        ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; 74190:inst5|49       ; 74190:inst5|50       ; C          ; C        ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; 74190:inst5|49       ; 74190:inst5|49       ; C          ; C        ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; C          ; C        ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; C          ; C        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; C          ; C        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|51       ; C          ; C        ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|50       ; 74190:inst5|51       ; C          ; C        ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|49       ; 74190:inst5|51       ; C          ; C        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|50       ; C          ; C        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|49       ; C          ; C        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|50       ; C          ; C        ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|49       ; C          ; C        ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|51       ; C          ; C        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|48       ; C          ; C        ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'A'                                                                                                                                                                                                 ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; 74190:inst5|50       ; 74190:inst5|50       ; A          ; A        ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; 74190:inst5|50       ; 74190:inst5|49       ; A          ; A        ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; 74190:inst5|49       ; 74190:inst5|50       ; A          ; A        ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; 74190:inst5|49       ; 74190:inst5|49       ; A          ; A        ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; A          ; A        ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; A          ; A        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; A          ; A        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|51       ; A          ; A        ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|50       ; 74190:inst5|51       ; A          ; A        ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|49       ; 74190:inst5|51       ; A          ; A        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|50       ; A          ; A        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|49       ; A          ; A        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|50       ; A          ; A        ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|49       ; A          ; A        ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|51       ; A          ; A        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|48       ; A          ; A        ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'B'                                                                                                                                                                                                 ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From                 ; To                   ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; 74190:inst5|50       ; 74190:inst5|50       ; B          ; B        ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns )               ; 74190:inst5|50       ; 74190:inst5|49       ; B          ; B        ; None                        ; None                      ; 4.900 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; 74190:inst5|49       ; 74190:inst5|50       ; B          ; B        ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns )               ; 74190:inst5|49       ; 74190:inst5|49       ; B          ; B        ; None                        ; None                      ; 4.700 ns                ;
+; N/A   ; 200.00 MHz ( period = 5.000 ns )               ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; B          ; B        ; None                        ; None                      ; 1.300 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; B          ; B        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; B          ; B        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|51       ; B          ; B        ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|50       ; 74190:inst5|51       ; B          ; B        ; None                        ; None                      ; 3.200 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|49       ; 74190:inst5|51       ; B          ; B        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|50       ; B          ; B        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|49       ; B          ; B        ; None                        ; None                      ; 3.000 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|50       ; B          ; B        ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|49       ; B          ; B        ; None                        ; None                      ; 2.800 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|51       ; 74190:inst5|51       ; B          ; B        ; None                        ; None                      ; 1.100 ns                ;
+; N/A   ; Restricted to 200.00 MHz ( period = 5.000 ns ) ; 74190:inst5|48       ; 74190:inst5|48       ; B          ; B        ; None                        ; None                      ; 1.100 ns                ;
++-------+------------------------------------------------+----------------------+----------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'CLK'                                                                                                                                                                                   ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; CLK        ; CLK      ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; CLK        ; CLK      ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; CLK        ; CLK      ; None                       ; None                       ; 1.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|51       ; 74190:inst5|51       ; CLK        ; CLK      ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|48       ; CLK        ; CLK      ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|49       ; 74190:inst5|50       ; CLK        ; CLK      ; None                       ; None                       ; 1.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|49       ; 74190:inst5|49       ; CLK        ; CLK      ; None                       ; None                       ; 1.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|50       ; 74190:inst5|50       ; CLK        ; CLK      ; None                       ; None                       ; 1.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|50       ; CLK        ; CLK      ; None                       ; None                       ; 2.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|49       ; CLK        ; CLK      ; None                       ; None                       ; 2.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|49       ; 74190:inst5|51       ; CLK        ; CLK      ; None                       ; None                       ; 3.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|51       ; 74190:inst5|50       ; CLK        ; CLK      ; None                       ; None                       ; 3.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|51       ; 74190:inst5|49       ; CLK        ; CLK      ; None                       ; None                       ; 3.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|51       ; CLK        ; CLK      ; None                       ; None                       ; 3.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|50       ; 74190:inst5|51       ; CLK        ; CLK      ; None                       ; None                       ; 3.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|50       ; 74190:inst5|49       ; CLK        ; CLK      ; None                       ; None                       ; 4.900 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'CLRN'                                                                                                                                                                                  ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; CLRN       ; CLRN     ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; CLRN       ; CLRN     ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; CLRN       ; CLRN     ; None                       ; None                       ; 1.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|51       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|48       ; CLRN       ; CLRN     ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|49       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                       ; None                       ; 1.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|49       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                       ; None                       ; 1.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|50       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                       ; None                       ; 1.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                       ; None                       ; 2.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                       ; None                       ; 2.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|49       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                       ; None                       ; 3.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|51       ; 74190:inst5|50       ; CLRN       ; CLRN     ; None                       ; None                       ; 3.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|51       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                       ; None                       ; 3.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|48       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                       ; None                       ; 3.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|50       ; 74190:inst5|51       ; CLRN       ; CLRN     ; None                       ; None                       ; 3.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; 74190:inst5|50       ; 74190:inst5|49       ; CLRN       ; CLRN     ; None                       ; None                       ; 4.900 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'C'                                                                                                                                                                                     ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; C          ; C        ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; C          ; C        ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; C          ; C        ; None                       ; None                       ; 1.300 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'A'                                                                                                                                                                                     ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; A          ; A        ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; A          ; A        ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; A          ; A        ; None                       ; None                       ; 1.300 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'B'                                                                                                                                                                                     ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                 ; To                   ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|7 ; Q:inst12|7476:inst|7 ; B          ; B        ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|8 ; B          ; B        ; None                       ; None                       ; 1.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; Q:inst12|7476:inst|8 ; Q:inst12|7476:inst|7 ; B          ; B        ; None                       ; None                       ; 1.300 ns                 ;
++------------------------------------------+----------------------+----------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------+
+; tsu                                                                   ;
++-------+--------------+------------+------+-----------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From ; To              ; To Clock ;
++-------+--------------+------------+------+-----------------+----------+
+; N/A   ; None         ; 4.600 ns   ; B    ; 74190:inst18|51 ; CLRN     ;
+; N/A   ; None         ; 4.600 ns   ; B    ; 74190:inst18|51 ; CLK      ;
+; N/A   ; None         ; 4.500 ns   ; A    ; 74190:inst18|51 ; CLRN     ;
+; N/A   ; None         ; 4.500 ns   ; A    ; 74190:inst18|51 ; CLK      ;
+; N/A   ; None         ; 4.500 ns   ; C    ; 74190:inst18|51 ; CLRN     ;
+; N/A   ; None         ; 4.500 ns   ; C    ; 74190:inst18|51 ; CLK      ;
+; N/A   ; None         ; 4.400 ns   ; B    ; 74190:inst18|50 ; CLRN     ;
+; N/A   ; None         ; 4.400 ns   ; B    ; 74190:inst18|50 ; CLK      ;
+; N/A   ; None         ; 4.300 ns   ; A    ; 74190:inst18|50 ; CLRN     ;
+; N/A   ; None         ; 4.300 ns   ; A    ; 74190:inst18|50 ; CLK      ;
+; N/A   ; None         ; 4.300 ns   ; C    ; 74190:inst18|50 ; CLRN     ;
+; N/A   ; None         ; 4.300 ns   ; C    ; 74190:inst18|50 ; CLK      ;
+; N/A   ; None         ; 4.100 ns   ; B    ; 74190:inst5|51  ; CLK      ;
+; N/A   ; None         ; 4.100 ns   ; A    ; 74190:inst5|51  ; CLK      ;
+; N/A   ; None         ; 3.900 ns   ; B    ; 74190:inst5|50  ; CLK      ;
+; N/A   ; None         ; 3.900 ns   ; B    ; 74190:inst5|49  ; CLK      ;
+; N/A   ; None         ; 3.900 ns   ; A    ; 74190:inst5|50  ; CLK      ;
+; N/A   ; None         ; 3.900 ns   ; A    ; 74190:inst5|49  ; CLK      ;
+; N/A   ; None         ; 3.900 ns   ; C    ; 74190:inst5|51  ; CLK      ;
+; N/A   ; None         ; 3.700 ns   ; B    ; 74190:inst5|51  ; CLRN     ;
+; N/A   ; None         ; 3.700 ns   ; A    ; 74190:inst5|51  ; CLRN     ;
+; N/A   ; None         ; 3.700 ns   ; C    ; 74190:inst5|50  ; CLK      ;
+; N/A   ; None         ; 3.700 ns   ; C    ; 74190:inst5|49  ; CLK      ;
+; N/A   ; None         ; 3.500 ns   ; B    ; 74190:inst5|50  ; CLRN     ;
+; N/A   ; None         ; 3.500 ns   ; B    ; 74190:inst5|49  ; CLRN     ;
+; N/A   ; None         ; 3.500 ns   ; A    ; 74190:inst5|50  ; CLRN     ;
+; N/A   ; None         ; 3.500 ns   ; A    ; 74190:inst5|49  ; CLRN     ;
+; N/A   ; None         ; 3.500 ns   ; C    ; 74190:inst5|51  ; CLRN     ;
+; N/A   ; None         ; 3.300 ns   ; C    ; 74190:inst5|50  ; CLRN     ;
+; N/A   ; None         ; 3.300 ns   ; C    ; 74190:inst5|49  ; CLRN     ;
+; N/A   ; None         ; 2.500 ns   ; B    ; 74190:inst18|49 ; CLRN     ;
+; N/A   ; None         ; 2.500 ns   ; B    ; 74190:inst18|49 ; CLK      ;
+; N/A   ; None         ; 2.400 ns   ; A    ; 74190:inst18|49 ; CLRN     ;
+; N/A   ; None         ; 2.400 ns   ; A    ; 74190:inst18|49 ; CLK      ;
+; N/A   ; None         ; 2.400 ns   ; C    ; 74190:inst18|49 ; CLRN     ;
+; N/A   ; None         ; 2.400 ns   ; C    ; 74190:inst18|49 ; CLK      ;
+; N/A   ; None         ; 2.400 ns   ; D2   ; 74373:inst95|17 ; C        ;
+; N/A   ; None         ; 2.400 ns   ; D2   ; 74373:inst97|17 ; B        ;
+; N/A   ; None         ; 2.200 ns   ; D2   ; 74373:inst95|17 ; A        ;
+; N/A   ; None         ; 2.200 ns   ; D2   ; 74373:inst97|17 ; C        ;
+; N/A   ; None         ; 2.100 ns   ; B    ; 74190:inst5|48  ; CLK      ;
+; N/A   ; None         ; 2.100 ns   ; A    ; 74190:inst5|48  ; CLK      ;
+; N/A   ; None         ; 2.100 ns   ; D2   ; 74373:inst95|17 ; chose    ;
+; N/A   ; None         ; 2.100 ns   ; D2   ; 74373:inst95|17 ; B        ;
+; N/A   ; None         ; 2.100 ns   ; D2   ; 74373:inst97|17 ; chose    ;
+; N/A   ; None         ; 2.100 ns   ; D2   ; 74373:inst97|17 ; A        ;
+; N/A   ; None         ; 1.900 ns   ; C    ; 74190:inst5|48  ; CLK      ;
+; N/A   ; None         ; 1.700 ns   ; B    ; 74190:inst5|48  ; CLRN     ;
+; N/A   ; None         ; 1.700 ns   ; A    ; 74190:inst5|48  ; CLRN     ;
+; N/A   ; None         ; 1.700 ns   ; D0   ; 74373:inst95|19 ; C        ;
+; N/A   ; None         ; 1.700 ns   ; D0   ; 74373:inst97|19 ; B        ;
+; N/A   ; None         ; 1.700 ns   ; D3   ; 74373:inst95|16 ; C        ;
+; N/A   ; None         ; 1.700 ns   ; D3   ; 74373:inst97|16 ; B        ;
+; N/A   ; None         ; 1.600 ns   ; D7   ; 74373:inst95|12 ; C        ;
+; N/A   ; None         ; 1.600 ns   ; D7   ; 74373:inst97|12 ; B        ;
+; N/A   ; None         ; 1.500 ns   ; C    ; 74190:inst5|48  ; CLRN     ;
+; N/A   ; None         ; 1.500 ns   ; D0   ; 74373:inst95|19 ; A        ;
+; N/A   ; None         ; 1.500 ns   ; D0   ; 74373:inst97|19 ; C        ;
+; N/A   ; None         ; 1.500 ns   ; D3   ; 74373:inst95|16 ; A        ;
+; N/A   ; None         ; 1.500 ns   ; D3   ; 74373:inst97|16 ; C        ;
+; N/A   ; None         ; 1.400 ns   ; D0   ; 74373:inst95|19 ; chose    ;
+; N/A   ; None         ; 1.400 ns   ; D0   ; 74373:inst95|19 ; B        ;
+; N/A   ; None         ; 1.400 ns   ; D0   ; 74373:inst97|19 ; chose    ;
+; N/A   ; None         ; 1.400 ns   ; D0   ; 74373:inst97|19 ; A        ;
+; N/A   ; None         ; 1.400 ns   ; D3   ; 74373:inst95|16 ; chose    ;
+; N/A   ; None         ; 1.400 ns   ; D3   ; 74373:inst95|16 ; B        ;
+; N/A   ; None         ; 1.400 ns   ; D3   ; 74373:inst97|16 ; chose    ;
+; N/A   ; None         ; 1.400 ns   ; D3   ; 74373:inst97|16 ; A        ;
+; N/A   ; None         ; 1.400 ns   ; D7   ; 74373:inst95|12 ; A        ;
+; N/A   ; None         ; 1.400 ns   ; D7   ; 74373:inst97|12 ; C        ;
+; N/A   ; None         ; 1.300 ns   ; D7   ; 74373:inst95|12 ; chose    ;
+; N/A   ; None         ; 1.300 ns   ; D7   ; 74373:inst95|12 ; B        ;
+; N/A   ; None         ; 1.300 ns   ; D7   ; 74373:inst97|12 ; chose    ;
+; N/A   ; None         ; 1.300 ns   ; D7   ; 74373:inst97|12 ; A        ;
+; N/A   ; None         ; 1.000 ns   ; B    ; 74190:inst18|48 ; CLRN     ;
+; N/A   ; None         ; 1.000 ns   ; B    ; 74190:inst18|48 ; CLK      ;
+; N/A   ; None         ; 1.000 ns   ; A    ; 74190:inst18|48 ; CLRN     ;
+; N/A   ; None         ; 1.000 ns   ; A    ; 74190:inst18|48 ; CLK      ;
+; N/A   ; None         ; 0.900 ns   ; B    ; 74190:inst5|51  ; C        ;
+; N/A   ; None         ; 0.900 ns   ; B    ; 74190:inst5|51  ; A        ;
+; N/A   ; None         ; 0.900 ns   ; A    ; 74190:inst5|51  ; C        ;
+; N/A   ; None         ; 0.900 ns   ; A    ; 74190:inst5|51  ; A        ;
+; N/A   ; None         ; 0.800 ns   ; B    ; 74190:inst5|51  ; B        ;
+; N/A   ; None         ; 0.800 ns   ; A    ; 74190:inst5|51  ; B        ;
+; N/A   ; None         ; 0.800 ns   ; C    ; 74190:inst18|48 ; CLRN     ;
+; N/A   ; None         ; 0.800 ns   ; C    ; 74190:inst18|48 ; CLK      ;
+; N/A   ; None         ; 0.700 ns   ; B    ; 74190:inst5|50  ; C        ;
+; N/A   ; None         ; 0.700 ns   ; B    ; 74190:inst5|50  ; A        ;
+; N/A   ; None         ; 0.700 ns   ; B    ; 74190:inst5|49  ; C        ;
+; N/A   ; None         ; 0.700 ns   ; B    ; 74190:inst5|49  ; A        ;
+; N/A   ; None         ; 0.700 ns   ; A    ; 74190:inst5|50  ; C        ;
+; N/A   ; None         ; 0.700 ns   ; A    ; 74190:inst5|50  ; A        ;
+; N/A   ; None         ; 0.700 ns   ; A    ; 74190:inst5|49  ; C        ;
+; N/A   ; None         ; 0.700 ns   ; A    ; 74190:inst5|49  ; A        ;
+; N/A   ; None         ; 0.700 ns   ; C    ; 74190:inst5|51  ; C        ;
+; N/A   ; None         ; 0.700 ns   ; C    ; 74190:inst5|51  ; A        ;
+; N/A   ; None         ; 0.700 ns   ; D1   ; 74373:inst95|18 ; C        ;
+; N/A   ; None         ; 0.700 ns   ; D1   ; 74373:inst97|18 ; B        ;
+; N/A   ; None         ; 0.600 ns   ; B    ; 74190:inst5|50  ; B        ;
+; N/A   ; None         ; 0.600 ns   ; B    ; 74190:inst5|49  ; B        ;
+; N/A   ; None         ; 0.600 ns   ; A    ; 74190:inst5|50  ; B        ;
+; N/A   ; None         ; 0.600 ns   ; A    ; 74190:inst5|49  ; B        ;
+; N/A   ; None         ; 0.600 ns   ; C    ; 74190:inst5|51  ; B        ;
+; N/A   ; None         ; 0.500 ns   ; C    ; 74190:inst5|50  ; C        ;
+; N/A   ; None         ; 0.500 ns   ; C    ; 74190:inst5|50  ; A        ;
+; N/A   ; None         ; 0.500 ns   ; C    ; 74190:inst5|49  ; C        ;
+; N/A   ; None         ; 0.500 ns   ; C    ; 74190:inst5|49  ; A        ;
+; N/A   ; None         ; 0.500 ns   ; D1   ; 74373:inst95|18 ; A        ;
+; N/A   ; None         ; 0.500 ns   ; D1   ; 74373:inst97|18 ; C        ;
+; N/A   ; None         ; 0.400 ns   ; C    ; 74190:inst5|50  ; B        ;
+; N/A   ; None         ; 0.400 ns   ; C    ; 74190:inst5|49  ; B        ;
+; N/A   ; None         ; 0.400 ns   ; D1   ; 74373:inst95|18 ; chose    ;
+; N/A   ; None         ; 0.400 ns   ; D1   ; 74373:inst95|18 ; B        ;
+; N/A   ; None         ; 0.400 ns   ; D1   ; 74373:inst97|18 ; chose    ;
+; N/A   ; None         ; 0.400 ns   ; D1   ; 74373:inst97|18 ; A        ;
+; N/A   ; None         ; 0.300 ns   ; D6   ; 74373:inst95|13 ; C        ;
+; N/A   ; None         ; 0.300 ns   ; D6   ; 74373:inst97|13 ; B        ;
+; N/A   ; None         ; 0.100 ns   ; D6   ; 74373:inst95|13 ; A        ;
+; N/A   ; None         ; 0.100 ns   ; D6   ; 74373:inst97|13 ; C        ;
+; N/A   ; None         ; 0.100 ns   ; D4   ; 74373:inst94|15 ; C        ;
+; N/A   ; None         ; 0.100 ns   ; D4   ; 74373:inst96|15 ; B        ;
+; N/A   ; None         ; 0.100 ns   ; D5   ; 74373:inst95|14 ; C        ;
+; N/A   ; None         ; 0.100 ns   ; D5   ; 74373:inst97|14 ; B        ;
+; N/A   ; None         ; 0.000 ns   ; D6   ; 74373:inst95|13 ; chose    ;
+; N/A   ; None         ; 0.000 ns   ; D6   ; 74373:inst95|13 ; B        ;
+; N/A   ; None         ; 0.000 ns   ; D6   ; 74373:inst97|13 ; chose    ;
+; N/A   ; None         ; 0.000 ns   ; D6   ; 74373:inst97|13 ; A        ;
+; N/A   ; None         ; -0.100 ns  ; D4   ; 74373:inst94|15 ; A        ;
+; N/A   ; None         ; -0.100 ns  ; D4   ; 74373:inst96|15 ; C        ;
+; N/A   ; None         ; -0.100 ns  ; D5   ; 74373:inst95|14 ; A        ;
+; N/A   ; None         ; -0.100 ns  ; D5   ; 74373:inst97|14 ; C        ;
+; N/A   ; None         ; -0.200 ns  ; D4   ; 74373:inst94|15 ; chose    ;
+; N/A   ; None         ; -0.200 ns  ; D4   ; 74373:inst94|15 ; B        ;
+; N/A   ; None         ; -0.200 ns  ; D4   ; 74373:inst96|15 ; chose    ;
+; N/A   ; None         ; -0.200 ns  ; D4   ; 74373:inst96|15 ; A        ;
+; N/A   ; None         ; -0.200 ns  ; D5   ; 74373:inst95|14 ; chose    ;
+; N/A   ; None         ; -0.200 ns  ; D5   ; 74373:inst95|14 ; B        ;
+; N/A   ; None         ; -0.200 ns  ; D5   ; 74373:inst97|14 ; chose    ;
+; N/A   ; None         ; -0.200 ns  ; D5   ; 74373:inst97|14 ; A        ;
+; N/A   ; None         ; -1.100 ns  ; B    ; 74190:inst5|48  ; C        ;
+; N/A   ; None         ; -1.100 ns  ; B    ; 74190:inst5|48  ; A        ;
+; N/A   ; None         ; -1.100 ns  ; A    ; 74190:inst5|48  ; C        ;
+; N/A   ; None         ; -1.100 ns  ; A    ; 74190:inst5|48  ; A        ;
+; N/A   ; None         ; -1.200 ns  ; B    ; 74190:inst5|48  ; B        ;
+; N/A   ; None         ; -1.200 ns  ; A    ; 74190:inst5|48  ; B        ;
+; N/A   ; None         ; -1.300 ns  ; C    ; 74190:inst5|48  ; C        ;
+; N/A   ; None         ; -1.300 ns  ; C    ; 74190:inst5|48  ; A        ;
+; N/A   ; None         ; -1.400 ns  ; C    ; 74190:inst5|48  ; B        ;
++-------+--------------+------------+------+-----------------+----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                                  ;
++-----------------------------------------+-----------------------------------------------------+------------+----------------------+-----+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From                 ; To  ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+----------------------+-----+------------+
+; N/A                                     ; None                                                ; 83.900 ns  ; Q:inst12|7476:inst|8 ; NS7 ; CLK        ;
+; N/A                                     ; None                                                ; 83.900 ns  ; Q:inst12|7476:inst|8 ; NS7 ; CLRN       ;
+; N/A                                     ; None                                                ; 80.900 ns  ; Q:inst12|7476:inst|8 ; NS7 ; B          ;
+; N/A                                     ; None                                                ; 80.800 ns  ; Q:inst12|7476:inst|8 ; NS7 ; C          ;
+; N/A                                     ; None                                                ; 80.800 ns  ; Q:inst12|7476:inst|8 ; NS7 ; A          ;
+; N/A                                     ; None                                                ; 80.800 ns  ; Q:inst12|7476:inst|8 ; EW7 ; CLK        ;
+; N/A                                     ; None                                                ; 80.800 ns  ; Q:inst12|7476:inst|8 ; EW7 ; CLRN       ;
+; N/A                                     ; None                                                ; 78.300 ns  ; Q:inst12|7476:inst|8 ; EW6 ; CLK        ;
+; N/A                                     ; None                                                ; 78.300 ns  ; Q:inst12|7476:inst|8 ; EW6 ; CLRN       ;
+; N/A                                     ; None                                                ; 77.800 ns  ; Q:inst12|7476:inst|8 ; EW7 ; B          ;
+; N/A                                     ; None                                                ; 77.700 ns  ; Q:inst12|7476:inst|8 ; EW7 ; C          ;
+; N/A                                     ; None                                                ; 77.700 ns  ; Q:inst12|7476:inst|8 ; EW7 ; A          ;
+; N/A                                     ; None                                                ; 76.900 ns  ; Q:inst12|7476:inst|8 ; NS6 ; CLK        ;
+; N/A                                     ; None                                                ; 76.900 ns  ; Q:inst12|7476:inst|8 ; NS6 ; CLRN       ;
+; N/A                                     ; None                                                ; 76.900 ns  ; Q:inst12|7476:inst|8 ; EW5 ; CLK        ;
+; N/A                                     ; None                                                ; 76.900 ns  ; Q:inst12|7476:inst|8 ; EW5 ; CLRN       ;
+; N/A                                     ; None                                                ; 75.300 ns  ; Q:inst12|7476:inst|8 ; EW6 ; B          ;
+; N/A                                     ; None                                                ; 75.200 ns  ; Q:inst12|7476:inst|8 ; EW6 ; C          ;
+; N/A                                     ; None                                                ; 75.200 ns  ; Q:inst12|7476:inst|8 ; EW6 ; A          ;
+; N/A                                     ; None                                                ; 74.700 ns  ; Q:inst12|7476:inst|8 ; NS5 ; CLK        ;
+; N/A                                     ; None                                                ; 74.700 ns  ; Q:inst12|7476:inst|8 ; NS5 ; CLRN       ;
+; N/A                                     ; None                                                ; 73.900 ns  ; Q:inst12|7476:inst|8 ; NS6 ; B          ;
+; N/A                                     ; None                                                ; 73.900 ns  ; Q:inst12|7476:inst|8 ; EW5 ; B          ;
+; N/A                                     ; None                                                ; 73.800 ns  ; Q:inst12|7476:inst|8 ; NS6 ; C          ;
+; N/A                                     ; None                                                ; 73.800 ns  ; Q:inst12|7476:inst|8 ; NS6 ; A          ;
+; N/A                                     ; None                                                ; 73.800 ns  ; Q:inst12|7476:inst|8 ; EW5 ; C          ;
+; N/A                                     ; None                                                ; 73.800 ns  ; Q:inst12|7476:inst|8 ; EW5 ; A          ;
+; N/A                                     ; None                                                ; 71.700 ns  ; Q:inst12|7476:inst|8 ; NS5 ; B          ;
+; N/A                                     ; None                                                ; 71.600 ns  ; Q:inst12|7476:inst|8 ; NS5 ; C          ;
+; N/A                                     ; None                                                ; 71.600 ns  ; Q:inst12|7476:inst|8 ; NS5 ; A          ;
+; N/A                                     ; None                                                ; 71.300 ns  ; Q:inst12|7476:inst|8 ; NS3 ; CLK        ;
+; N/A                                     ; None                                                ; 71.300 ns  ; Q:inst12|7476:inst|8 ; NS3 ; CLRN       ;
+; N/A                                     ; None                                                ; 68.800 ns  ; 74373:inst95|19      ; NS7 ; chose      ;
+; N/A                                     ; None                                                ; 68.800 ns  ; 74373:inst95|19      ; NS7 ; B          ;
+; N/A                                     ; None                                                ; 68.700 ns  ; 74373:inst95|19      ; NS7 ; A          ;
+; N/A                                     ; None                                                ; 68.500 ns  ; 74373:inst95|19      ; NS7 ; C          ;
+; N/A                                     ; None                                                ; 68.300 ns  ; Q:inst12|7476:inst|8 ; NS3 ; B          ;
+; N/A                                     ; None                                                ; 68.200 ns  ; Q:inst12|7476:inst|8 ; NS3 ; C          ;
+; N/A                                     ; None                                                ; 68.200 ns  ; Q:inst12|7476:inst|8 ; NS3 ; A          ;
+; N/A                                     ; None                                                ; 68.000 ns  ; Q:inst12|7476:inst|8 ; EW3 ; CLK        ;
+; N/A                                     ; None                                                ; 68.000 ns  ; Q:inst12|7476:inst|8 ; EW3 ; CLRN       ;
+; N/A                                     ; None                                                ; 66.500 ns  ; 74190:inst18|48      ; NS7 ; CLRN       ;
+; N/A                                     ; None                                                ; 66.500 ns  ; 74190:inst18|48      ; NS7 ; CLK        ;
+; N/A                                     ; None                                                ; 65.700 ns  ; 74373:inst95|19      ; EW7 ; chose      ;
+; N/A                                     ; None                                                ; 65.700 ns  ; 74373:inst95|19      ; EW7 ; B          ;
+; N/A                                     ; None                                                ; 65.600 ns  ; 74373:inst95|19      ; EW7 ; A          ;
+; N/A                                     ; None                                                ; 65.400 ns  ; 74373:inst95|19      ; EW7 ; C          ;
+; N/A                                     ; None                                                ; 65.000 ns  ; Q:inst12|7476:inst|8 ; EW3 ; B          ;
+; N/A                                     ; None                                                ; 64.900 ns  ; Q:inst12|7476:inst|8 ; EW3 ; C          ;
+; N/A                                     ; None                                                ; 64.900 ns  ; Q:inst12|7476:inst|8 ; EW3 ; A          ;
+; N/A                                     ; None                                                ; 64.400 ns  ; 74373:inst95|18      ; NS7 ; chose      ;
+; N/A                                     ; None                                                ; 64.400 ns  ; 74373:inst95|18      ; NS7 ; B          ;
+; N/A                                     ; None                                                ; 64.300 ns  ; 74373:inst95|18      ; NS7 ; A          ;
+; N/A                                     ; None                                                ; 64.100 ns  ; 74373:inst95|18      ; NS7 ; C          ;
+; N/A                                     ; None                                                ; 63.900 ns  ; Q:inst12|7476:inst|8 ; NS1 ; CLK        ;
+; N/A                                     ; None                                                ; 63.900 ns  ; Q:inst12|7476:inst|8 ; NS1 ; CLRN       ;
+; N/A                                     ; None                                                ; 63.600 ns  ; Q:inst12|7476:inst|7 ; NS7 ; CLK        ;
+; N/A                                     ; None                                                ; 63.600 ns  ; Q:inst12|7476:inst|7 ; NS7 ; CLRN       ;
+; N/A                                     ; None                                                ; 63.400 ns  ; 74190:inst18|48      ; EW7 ; CLRN       ;
+; N/A                                     ; None                                                ; 63.400 ns  ; 74190:inst18|48      ; EW7 ; CLK        ;
+; N/A                                     ; None                                                ; 63.300 ns  ; Q:inst12|7476:inst|8 ; EW2 ; CLK        ;
+; N/A                                     ; None                                                ; 63.300 ns  ; Q:inst12|7476:inst|8 ; EW2 ; CLRN       ;
+; N/A                                     ; None                                                ; 63.200 ns  ; 74373:inst95|19      ; EW6 ; chose      ;
+; N/A                                     ; None                                                ; 63.200 ns  ; 74373:inst95|19      ; EW6 ; B          ;
+; N/A                                     ; None                                                ; 63.100 ns  ; 74373:inst95|19      ; EW6 ; A          ;
+; N/A                                     ; None                                                ; 62.900 ns  ; 74373:inst95|19      ; EW6 ; C          ;
+; N/A                                     ; None                                                ; 62.200 ns  ; 74190:inst18|49      ; NS7 ; CLRN       ;
+; N/A                                     ; None                                                ; 62.200 ns  ; 74190:inst18|49      ; NS7 ; CLK        ;
+; N/A                                     ; None                                                ; 62.000 ns  ; Q:inst12|7476:inst|8 ; NS2 ; CLK        ;
+; N/A                                     ; None                                                ; 62.000 ns  ; Q:inst12|7476:inst|8 ; NS2 ; CLRN       ;
+; N/A                                     ; None                                                ; 61.800 ns  ; 74373:inst95|19      ; NS6 ; chose      ;
+; N/A                                     ; None                                                ; 61.800 ns  ; 74373:inst95|19      ; NS6 ; B          ;
+; N/A                                     ; None                                                ; 61.800 ns  ; 74373:inst95|19      ; EW5 ; chose      ;
+; N/A                                     ; None                                                ; 61.800 ns  ; 74373:inst95|19      ; EW5 ; B          ;
+; N/A                                     ; None                                                ; 61.700 ns  ; 74373:inst95|19      ; NS6 ; A          ;
+; N/A                                     ; None                                                ; 61.700 ns  ; Q:inst12|7476:inst|8 ; EW1 ; CLK        ;
+; N/A                                     ; None                                                ; 61.700 ns  ; Q:inst12|7476:inst|8 ; EW1 ; CLRN       ;
+; N/A                                     ; None                                                ; 61.700 ns  ; Q:inst12|7476:inst|8 ; EW4 ; CLK        ;
+; N/A                                     ; None                                                ; 61.700 ns  ; Q:inst12|7476:inst|8 ; EW4 ; CLRN       ;
+; N/A                                     ; None                                                ; 61.700 ns  ; 74373:inst95|19      ; EW5 ; A          ;
+; N/A                                     ; None                                                ; 61.500 ns  ; 74373:inst95|19      ; NS6 ; C          ;
+; N/A                                     ; None                                                ; 61.500 ns  ; 74373:inst95|19      ; EW5 ; C          ;
+; N/A                                     ; None                                                ; 61.300 ns  ; 74373:inst95|18      ; EW7 ; chose      ;
+; N/A                                     ; None                                                ; 61.300 ns  ; 74373:inst95|18      ; EW7 ; B          ;
+; N/A                                     ; None                                                ; 61.200 ns  ; 74373:inst95|18      ; EW7 ; A          ;
+; N/A                                     ; None                                                ; 61.000 ns  ; 74373:inst95|18      ; EW7 ; C          ;
+; N/A                                     ; None                                                ; 60.900 ns  ; Q:inst12|7476:inst|8 ; NS1 ; B          ;
+; N/A                                     ; None                                                ; 60.900 ns  ; 74190:inst18|48      ; EW6 ; CLRN       ;
+; N/A                                     ; None                                                ; 60.900 ns  ; 74190:inst18|48      ; EW6 ; CLK        ;
+; N/A                                     ; None                                                ; 60.800 ns  ; Q:inst12|7476:inst|8 ; NS1 ; C          ;
+; N/A                                     ; None                                                ; 60.800 ns  ; Q:inst12|7476:inst|8 ; NS1 ; A          ;
+; N/A                                     ; None                                                ; 60.600 ns  ; Q:inst12|7476:inst|7 ; NS7 ; B          ;
+; N/A                                     ; None                                                ; 60.500 ns  ; Q:inst12|7476:inst|7 ; NS7 ; C          ;
+; N/A                                     ; None                                                ; 60.500 ns  ; Q:inst12|7476:inst|7 ; NS7 ; A          ;
+; N/A                                     ; None                                                ; 60.500 ns  ; Q:inst12|7476:inst|7 ; EW7 ; CLK        ;
+; N/A                                     ; None                                                ; 60.500 ns  ; Q:inst12|7476:inst|7 ; EW7 ; CLRN       ;
+; N/A                                     ; None                                                ; 60.400 ns  ; Q:inst12|7476:inst|8 ; NS4 ; CLK        ;
+; N/A                                     ; None                                                ; 60.400 ns  ; Q:inst12|7476:inst|8 ; NS4 ; CLRN       ;
+; N/A                                     ; None                                                ; 60.300 ns  ; Q:inst12|7476:inst|8 ; EW2 ; B          ;
+; N/A                                     ; None                                                ; 60.200 ns  ; Q:inst12|7476:inst|8 ; EW2 ; C          ;
+; N/A                                     ; None                                                ; 60.200 ns  ; Q:inst12|7476:inst|8 ; EW2 ; A          ;
+; N/A                                     ; None                                                ; 59.600 ns  ; 74373:inst95|19      ; NS5 ; chose      ;
+; N/A                                     ; None                                                ; 59.600 ns  ; 74373:inst95|19      ; NS5 ; B          ;
+; N/A                                     ; None                                                ; 59.500 ns  ; 74190:inst18|48      ; NS6 ; CLRN       ;
+; N/A                                     ; None                                                ; 59.500 ns  ; 74190:inst18|48      ; NS6 ; CLK        ;
+; N/A                                     ; None                                                ; 59.500 ns  ; 74373:inst95|19      ; NS5 ; A          ;
+; N/A                                     ; None                                                ; 59.500 ns  ; 74190:inst18|48      ; EW5 ; CLRN       ;
+; N/A                                     ; None                                                ; 59.500 ns  ; 74190:inst18|48      ; EW5 ; CLK        ;
+; N/A                                     ; None                                                ; 59.300 ns  ; 74373:inst95|19      ; NS5 ; C          ;
+; N/A                                     ; None                                                ; 59.100 ns  ; 74190:inst18|49      ; EW7 ; CLRN       ;
+; N/A                                     ; None                                                ; 59.100 ns  ; 74190:inst18|49      ; EW7 ; CLK        ;
+; N/A                                     ; None                                                ; 59.000 ns  ; Q:inst12|7476:inst|8 ; NS2 ; B          ;
+; N/A                                     ; None                                                ; 58.900 ns  ; 74373:inst95|17      ; NS7 ; chose      ;
+; N/A                                     ; None                                                ; 58.900 ns  ; 74373:inst95|17      ; NS7 ; B          ;
+; N/A                                     ; None                                                ; 58.900 ns  ; Q:inst12|7476:inst|8 ; NS2 ; C          ;
+; N/A                                     ; None                                                ; 58.900 ns  ; Q:inst12|7476:inst|8 ; NS2 ; A          ;
+; N/A                                     ; None                                                ; 58.800 ns  ; 74373:inst95|17      ; NS7 ; A          ;
+; N/A                                     ; None                                                ; 58.800 ns  ; 74373:inst95|18      ; EW6 ; chose      ;
+; N/A                                     ; None                                                ; 58.800 ns  ; 74373:inst95|18      ; EW6 ; B          ;
+; N/A                                     ; None                                                ; 58.700 ns  ; Q:inst12|7476:inst|8 ; EW1 ; B          ;
+; N/A                                     ; None                                                ; 58.700 ns  ; Q:inst12|7476:inst|8 ; EW4 ; B          ;
+; N/A                                     ; None                                                ; 58.700 ns  ; 74373:inst95|18      ; EW6 ; A          ;
+; N/A                                     ; None                                                ; 58.600 ns  ; 74373:inst95|17      ; NS7 ; C          ;
+; N/A                                     ; None                                                ; 58.600 ns  ; Q:inst12|7476:inst|8 ; EW1 ; C          ;
+; N/A                                     ; None                                                ; 58.600 ns  ; Q:inst12|7476:inst|8 ; EW1 ; A          ;
+; N/A                                     ; None                                                ; 58.600 ns  ; Q:inst12|7476:inst|8 ; EW4 ; C          ;
+; N/A                                     ; None                                                ; 58.600 ns  ; Q:inst12|7476:inst|8 ; EW4 ; A          ;
+; N/A                                     ; None                                                ; 58.500 ns  ; 74373:inst95|18      ; EW6 ; C          ;
+; N/A                                     ; None                                                ; 58.000 ns  ; Q:inst12|7476:inst|7 ; EW6 ; CLK        ;
+; N/A                                     ; None                                                ; 58.000 ns  ; Q:inst12|7476:inst|7 ; EW6 ; CLRN       ;
+; N/A                                     ; None                                                ; 57.500 ns  ; Q:inst12|7476:inst|7 ; EW7 ; B          ;
+; N/A                                     ; None                                                ; 57.400 ns  ; 74373:inst95|18      ; NS6 ; chose      ;
+; N/A                                     ; None                                                ; 57.400 ns  ; 74373:inst95|18      ; NS6 ; B          ;
+; N/A                                     ; None                                                ; 57.400 ns  ; Q:inst12|7476:inst|8 ; NS4 ; B          ;
+; N/A                                     ; None                                                ; 57.400 ns  ; 74373:inst95|18      ; EW5 ; chose      ;
+; N/A                                     ; None                                                ; 57.400 ns  ; 74373:inst95|18      ; EW5 ; B          ;
+; N/A                                     ; None                                                ; 57.400 ns  ; Q:inst12|7476:inst|7 ; EW7 ; C          ;
+; N/A                                     ; None                                                ; 57.400 ns  ; Q:inst12|7476:inst|7 ; EW7 ; A          ;
+; N/A                                     ; None                                                ; 57.300 ns  ; 74373:inst95|18      ; NS6 ; A          ;
+; N/A                                     ; None                                                ; 57.300 ns  ; 74190:inst18|48      ; NS5 ; CLRN       ;
+; N/A                                     ; None                                                ; 57.300 ns  ; 74190:inst18|48      ; NS5 ; CLK        ;
+; N/A                                     ; None                                                ; 57.300 ns  ; Q:inst12|7476:inst|8 ; NS4 ; C          ;
+; N/A                                     ; None                                                ; 57.300 ns  ; Q:inst12|7476:inst|8 ; NS4 ; A          ;
+; N/A                                     ; None                                                ; 57.300 ns  ; 74373:inst95|18      ; EW5 ; A          ;
+; N/A                                     ; None                                                ; 57.100 ns  ; 74373:inst95|18      ; NS6 ; C          ;
+; N/A                                     ; None                                                ; 57.100 ns  ; 74373:inst95|18      ; EW5 ; C          ;
+; N/A                                     ; None                                                ; 56.700 ns  ; 74190:inst18|50      ; NS7 ; CLRN       ;
+; N/A                                     ; None                                                ; 56.700 ns  ; 74190:inst18|50      ; NS7 ; CLK        ;
+; N/A                                     ; None                                                ; 56.600 ns  ; Q:inst12|7476:inst|7 ; NS6 ; CLK        ;
+; N/A                                     ; None                                                ; 56.600 ns  ; Q:inst12|7476:inst|7 ; NS6 ; CLRN       ;
+; N/A                                     ; None                                                ; 56.600 ns  ; Q:inst12|7476:inst|7 ; EW5 ; CLK        ;
+; N/A                                     ; None                                                ; 56.600 ns  ; Q:inst12|7476:inst|7 ; EW5 ; CLRN       ;
+; N/A                                     ; None                                                ; 56.600 ns  ; 74190:inst18|49      ; EW6 ; CLRN       ;
+; N/A                                     ; None                                                ; 56.600 ns  ; 74190:inst18|49      ; EW6 ; CLK        ;
+; N/A                                     ; None                                                ; 56.200 ns  ; 74373:inst95|19      ; NS3 ; chose      ;
+; N/A                                     ; None                                                ; 56.200 ns  ; 74373:inst95|19      ; NS3 ; B          ;
+; N/A                                     ; None                                                ; 56.100 ns  ; 74373:inst95|19      ; NS3 ; A          ;
+; N/A                                     ; None                                                ; 55.900 ns  ; 74373:inst95|19      ; NS3 ; C          ;
+; N/A                                     ; None                                                ; 55.800 ns  ; 74373:inst95|17      ; EW7 ; chose      ;
+; N/A                                     ; None                                                ; 55.800 ns  ; 74373:inst95|17      ; EW7 ; B          ;
+; N/A                                     ; None                                                ; 55.700 ns  ; 74373:inst95|17      ; EW7 ; A          ;
+; N/A                                     ; None                                                ; 55.500 ns  ; 74373:inst95|17      ; EW7 ; C          ;
+; N/A                                     ; None                                                ; 55.200 ns  ; 74190:inst18|49      ; NS6 ; CLRN       ;
+; N/A                                     ; None                                                ; 55.200 ns  ; 74190:inst18|49      ; NS6 ; CLK        ;
+; N/A                                     ; None                                                ; 55.200 ns  ; 74373:inst95|18      ; NS5 ; chose      ;
+; N/A                                     ; None                                                ; 55.200 ns  ; 74373:inst95|18      ; NS5 ; B          ;
+; N/A                                     ; None                                                ; 55.200 ns  ; 74190:inst18|49      ; EW5 ; CLRN       ;
+; N/A                                     ; None                                                ; 55.200 ns  ; 74190:inst18|49      ; EW5 ; CLK        ;
+; N/A                                     ; None                                                ; 55.100 ns  ; 74373:inst95|18      ; NS5 ; A          ;
+; N/A                                     ; None                                                ; 55.000 ns  ; Q:inst12|7476:inst|7 ; EW6 ; B          ;
+; N/A                                     ; None                                                ; 54.900 ns  ; 74373:inst95|18      ; NS5 ; C          ;
+; N/A                                     ; None                                                ; 54.900 ns  ; Q:inst12|7476:inst|7 ; EW6 ; C          ;
+; N/A                                     ; None                                                ; 54.900 ns  ; Q:inst12|7476:inst|7 ; EW6 ; A          ;
+; N/A                                     ; None                                                ; 54.400 ns  ; Q:inst12|7476:inst|7 ; NS5 ; CLK        ;
+; N/A                                     ; None                                                ; 54.400 ns  ; Q:inst12|7476:inst|7 ; NS5 ; CLRN       ;
+; N/A                                     ; None                                                ; 53.900 ns  ; 74190:inst18|48      ; NS3 ; CLRN       ;
+; N/A                                     ; None                                                ; 53.900 ns  ; 74190:inst18|48      ; NS3 ; CLK        ;
+; N/A                                     ; None                                                ; 53.600 ns  ; Q:inst12|7476:inst|7 ; NS6 ; B          ;
+; N/A                                     ; None                                                ; 53.600 ns  ; Q:inst12|7476:inst|7 ; EW5 ; B          ;
+; N/A                                     ; None                                                ; 53.600 ns  ; 74190:inst18|50      ; EW7 ; CLRN       ;
+; N/A                                     ; None                                                ; 53.600 ns  ; 74190:inst18|50      ; EW7 ; CLK        ;
+; N/A                                     ; None                                                ; 53.500 ns  ; 74373:inst95|16      ; NS7 ; chose      ;
+; N/A                                     ; None                                                ; 53.500 ns  ; 74373:inst95|16      ; NS7 ; B          ;
+; N/A                                     ; None                                                ; 53.500 ns  ; Q:inst12|7476:inst|7 ; NS6 ; C          ;
+; N/A                                     ; None                                                ; 53.500 ns  ; Q:inst12|7476:inst|7 ; NS6 ; A          ;
+; N/A                                     ; None                                                ; 53.500 ns  ; Q:inst12|7476:inst|7 ; EW5 ; C          ;
+; N/A                                     ; None                                                ; 53.500 ns  ; Q:inst12|7476:inst|7 ; EW5 ; A          ;
+; N/A                                     ; None                                                ; 53.400 ns  ; 74373:inst95|16      ; NS7 ; A          ;
+; N/A                                     ; None                                                ; 53.300 ns  ; 74373:inst95|17      ; EW6 ; chose      ;
+; N/A                                     ; None                                                ; 53.300 ns  ; 74373:inst95|17      ; EW6 ; B          ;
+; N/A                                     ; None                                                ; 53.200 ns  ; 74373:inst95|16      ; NS7 ; C          ;
+; N/A                                     ; None                                                ; 53.200 ns  ; 74373:inst95|17      ; EW6 ; A          ;
+; N/A                                     ; None                                                ; 53.000 ns  ; 74190:inst18|49      ; NS5 ; CLRN       ;
+; N/A                                     ; None                                                ; 53.000 ns  ; 74190:inst18|49      ; NS5 ; CLK        ;
+; N/A                                     ; None                                                ; 53.000 ns  ; 74373:inst95|17      ; EW6 ; C          ;
+; N/A                                     ; None                                                ; 52.900 ns  ; 74373:inst95|19      ; EW3 ; chose      ;
+; N/A                                     ; None                                                ; 52.900 ns  ; 74373:inst95|19      ; EW3 ; B          ;
+; N/A                                     ; None                                                ; 52.800 ns  ; 74373:inst95|19      ; EW3 ; A          ;
+; N/A                                     ; None                                                ; 52.600 ns  ; 74373:inst95|19      ; EW3 ; C          ;
+; N/A                                     ; None                                                ; 52.300 ns  ; 74190:inst5|48       ; NS7 ; CLK        ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;                      ;     ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+----------------------+-----+------------+
+
+
++-------------------------------------------------------------+
+; tpd                                                         ;
++-------+-------------------+-----------------+---------+-----+
+; Slack ; Required P2P Time ; Actual P2P Time ; From    ; To  ;
++-------+-------------------+-----------------+---------+-----+
+; N/A   ; None              ; 24.800 ns       ; STOPNSG ; NS3 ;
+; N/A   ; None              ; 24.700 ns       ; TwinkY  ; NS3 ;
+; N/A   ; None              ; 24.700 ns       ; STOPR   ; NS3 ;
+; N/A   ; None              ; 24.300 ns       ; STOPNSG ; NS1 ;
+; N/A   ; None              ; 24.200 ns       ; TwinkY  ; NS1 ;
+; N/A   ; None              ; 24.200 ns       ; STOPR   ; NS1 ;
+; N/A   ; None              ; 24.100 ns       ; STOPNSG ; NS7 ;
+; N/A   ; None              ; 24.000 ns       ; TwinkY  ; NS7 ;
+; N/A   ; None              ; 24.000 ns       ; STOPR   ; NS7 ;
+; N/A   ; None              ; 23.800 ns       ; CLRN    ; NS3 ;
+; N/A   ; None              ; 23.300 ns       ; CLRN    ; NS1 ;
+; N/A   ; None              ; 23.100 ns       ; CLRN    ; NS7 ;
+; N/A   ; None              ; 22.400 ns       ; STOPNSG ; EWG ;
+; N/A   ; None              ; 22.300 ns       ; TwinkY  ; EWG ;
+; N/A   ; None              ; 22.300 ns       ; STOPR   ; EWG ;
+; N/A   ; None              ; 22.100 ns       ; STOPNSG ; EW0 ;
+; N/A   ; None              ; 22.100 ns       ; STOPNSG ; EW1 ;
+; N/A   ; None              ; 22.000 ns       ; TwinkY  ; EW0 ;
+; N/A   ; None              ; 22.000 ns       ; STOPR   ; EW0 ;
+; N/A   ; None              ; 22.000 ns       ; TwinkY  ; EW1 ;
+; N/A   ; None              ; 22.000 ns       ; STOPR   ; EW1 ;
+; N/A   ; None              ; 22.000 ns       ; STOPNSG ; EW2 ;
+; N/A   ; None              ; 22.000 ns       ; STOPNSG ; EW4 ;
+; N/A   ; None              ; 22.000 ns       ; STOPNSG ; EW7 ;
+; N/A   ; None              ; 21.900 ns       ; TwinkY  ; EW2 ;
+; N/A   ; None              ; 21.900 ns       ; STOPR   ; EW2 ;
+; N/A   ; None              ; 21.900 ns       ; TwinkY  ; EW4 ;
+; N/A   ; None              ; 21.900 ns       ; STOPR   ; EW4 ;
+; N/A   ; None              ; 21.900 ns       ; TwinkY  ; EW7 ;
+; N/A   ; None              ; 21.900 ns       ; STOPR   ; EW7 ;
+; N/A   ; None              ; 21.900 ns       ; STOPNSG ; EWY ;
+; N/A   ; None              ; 21.800 ns       ; TwinkY  ; EWY ;
+; N/A   ; None              ; 21.800 ns       ; STOPR   ; EWY ;
+; N/A   ; None              ; 21.500 ns       ; STOPNSG ; EW3 ;
+; N/A   ; None              ; 21.400 ns       ; TwinkY  ; EW3 ;
+; N/A   ; None              ; 21.400 ns       ; STOPR   ; EW3 ;
+; N/A   ; None              ; 21.400 ns       ; STOPNSG ; EW5 ;
+; N/A   ; None              ; 21.400 ns       ; CLRN    ; EWG ;
+; N/A   ; None              ; 21.300 ns       ; TwinkY  ; EW5 ;
+; N/A   ; None              ; 21.300 ns       ; STOPR   ; EW5 ;
+; N/A   ; None              ; 21.300 ns       ; STOPR   ; EWR ;
+; N/A   ; None              ; 21.100 ns       ; CLRN    ; EW0 ;
+; N/A   ; None              ; 21.100 ns       ; CLRN    ; EW1 ;
+; N/A   ; None              ; 21.100 ns       ; STOPNSG ; EWR ;
+; N/A   ; None              ; 21.000 ns       ; CLRN    ; EW2 ;
+; N/A   ; None              ; 21.000 ns       ; CLRN    ; EW4 ;
+; N/A   ; None              ; 21.000 ns       ; CLRN    ; EW7 ;
+; N/A   ; None              ; 21.000 ns       ; TwinkY  ; EWR ;
+; N/A   ; None              ; 20.900 ns       ; CLRN    ; EWY ;
+; N/A   ; None              ; 20.700 ns       ; STOPNSG ; NS4 ;
+; N/A   ; None              ; 20.700 ns       ; STOPNSG ; NS2 ;
+; N/A   ; None              ; 20.600 ns       ; TwinkY  ; NS4 ;
+; N/A   ; None              ; 20.600 ns       ; STOPR   ; NS4 ;
+; N/A   ; None              ; 20.600 ns       ; TwinkY  ; NS2 ;
+; N/A   ; None              ; 20.600 ns       ; STOPR   ; NS2 ;
+; N/A   ; None              ; 20.600 ns       ; STOPNSG ; NS0 ;
+; N/A   ; None              ; 20.600 ns       ; STOPNSG ; EW6 ;
+; N/A   ; None              ; 20.500 ns       ; TwinkY  ; NS0 ;
+; N/A   ; None              ; 20.500 ns       ; STOPR   ; NS0 ;
+; N/A   ; None              ; 20.500 ns       ; CLRN    ; EW3 ;
+; N/A   ; None              ; 20.500 ns       ; TwinkY  ; EW6 ;
+; N/A   ; None              ; 20.500 ns       ; STOPR   ; EW6 ;
+; N/A   ; None              ; 20.500 ns       ; STOPNSG ; NSG ;
+; N/A   ; None              ; 20.500 ns       ; STOPNSG ; NSR ;
+; N/A   ; None              ; 20.400 ns       ; CLRN    ; EW5 ;
+; N/A   ; None              ; 20.400 ns       ; TwinkY  ; NSG ;
+; N/A   ; None              ; 20.400 ns       ; STOPR   ; NSG ;
+; N/A   ; None              ; 20.400 ns       ; TwinkY  ; NSR ;
+; N/A   ; None              ; 20.400 ns       ; STOPR   ; NSR ;
+; N/A   ; None              ; 20.300 ns       ; STOPNSG ; NSY ;
+; N/A   ; None              ; 20.200 ns       ; TwinkY  ; NSY ;
+; N/A   ; None              ; 20.200 ns       ; STOPR   ; NSY ;
+; N/A   ; None              ; 20.100 ns       ; CLK     ; EWY ;
+; N/A   ; None              ; 19.700 ns       ; CLRN    ; NS4 ;
+; N/A   ; None              ; 19.700 ns       ; CLRN    ; NS2 ;
+; N/A   ; None              ; 19.600 ns       ; CLRN    ; NS0 ;
+; N/A   ; None              ; 19.600 ns       ; CLRN    ; EW6 ;
+; N/A   ; None              ; 19.500 ns       ; CLRN    ; NSG ;
+; N/A   ; None              ; 19.500 ns       ; CLRN    ; NSR ;
+; N/A   ; None              ; 19.300 ns       ; CLRN    ; NSY ;
+; N/A   ; None              ; 19.200 ns       ; STOPNSG ; NS6 ;
+; N/A   ; None              ; 19.200 ns       ; STOPNSG ; NS5 ;
+; N/A   ; None              ; 19.100 ns       ; TwinkY  ; NS6 ;
+; N/A   ; None              ; 19.100 ns       ; STOPR   ; NS6 ;
+; N/A   ; None              ; 19.100 ns       ; TwinkY  ; NS5 ;
+; N/A   ; None              ; 19.100 ns       ; STOPR   ; NS5 ;
+; N/A   ; None              ; 18.500 ns       ; CLK     ; NSY ;
+; N/A   ; None              ; 18.200 ns       ; CLRN    ; NS6 ;
+; N/A   ; None              ; 18.200 ns       ; CLRN    ; NS5 ;
+; N/A   ; None              ; 17.900 ns       ; CLRN    ; EWR ;
++-------+-------------------+-----------------+---------+-----+
+
+
++-----------------------------------------------------------------------------+
+; th                                                                          ;
++---------------+-------------+-----------+------+-----------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From ; To              ; To Clock ;
++---------------+-------------+-----------+------+-----------------+----------+
+; N/A           ; None        ; 6.300 ns  ; C    ; 74190:inst5|48  ; CLK      ;
+; N/A           ; None        ; 6.300 ns  ; C    ; 74190:inst5|48  ; CLRN     ;
+; N/A           ; None        ; 6.100 ns  ; B    ; 74190:inst5|48  ; CLK      ;
+; N/A           ; None        ; 6.100 ns  ; B    ; 74190:inst5|48  ; CLRN     ;
+; N/A           ; None        ; 6.100 ns  ; A    ; 74190:inst5|48  ; CLK      ;
+; N/A           ; None        ; 6.100 ns  ; A    ; 74190:inst5|48  ; CLRN     ;
+; N/A           ; None        ; 4.500 ns  ; C    ; 74190:inst5|50  ; CLK      ;
+; N/A           ; None        ; 4.500 ns  ; C    ; 74190:inst5|50  ; CLRN     ;
+; N/A           ; None        ; 4.500 ns  ; C    ; 74190:inst5|49  ; CLK      ;
+; N/A           ; None        ; 4.500 ns  ; C    ; 74190:inst5|49  ; CLRN     ;
+; N/A           ; None        ; 4.300 ns  ; B    ; 74190:inst5|50  ; CLK      ;
+; N/A           ; None        ; 4.300 ns  ; B    ; 74190:inst5|50  ; CLRN     ;
+; N/A           ; None        ; 4.300 ns  ; B    ; 74190:inst5|49  ; CLK      ;
+; N/A           ; None        ; 4.300 ns  ; B    ; 74190:inst5|49  ; CLRN     ;
+; N/A           ; None        ; 4.300 ns  ; A    ; 74190:inst5|50  ; CLK      ;
+; N/A           ; None        ; 4.300 ns  ; A    ; 74190:inst5|50  ; CLRN     ;
+; N/A           ; None        ; 4.300 ns  ; A    ; 74190:inst5|49  ; CLK      ;
+; N/A           ; None        ; 4.300 ns  ; A    ; 74190:inst5|49  ; CLRN     ;
+; N/A           ; None        ; 4.300 ns  ; C    ; 74190:inst5|51  ; CLK      ;
+; N/A           ; None        ; 4.300 ns  ; C    ; 74190:inst5|51  ; CLRN     ;
+; N/A           ; None        ; 4.100 ns  ; B    ; 74190:inst5|51  ; CLK      ;
+; N/A           ; None        ; 4.100 ns  ; B    ; 74190:inst5|51  ; CLRN     ;
+; N/A           ; None        ; 4.100 ns  ; A    ; 74190:inst5|51  ; CLK      ;
+; N/A           ; None        ; 4.100 ns  ; A    ; 74190:inst5|51  ; CLRN     ;
+; N/A           ; None        ; 3.500 ns  ; D4   ; 74373:inst94|15 ; chose    ;
+; N/A           ; None        ; 3.500 ns  ; D4   ; 74373:inst94|15 ; B        ;
+; N/A           ; None        ; 3.500 ns  ; D4   ; 74373:inst96|15 ; chose    ;
+; N/A           ; None        ; 3.500 ns  ; D4   ; 74373:inst96|15 ; A        ;
+; N/A           ; None        ; 3.500 ns  ; D5   ; 74373:inst95|14 ; chose    ;
+; N/A           ; None        ; 3.500 ns  ; D5   ; 74373:inst95|14 ; B        ;
+; N/A           ; None        ; 3.500 ns  ; D5   ; 74373:inst97|14 ; chose    ;
+; N/A           ; None        ; 3.500 ns  ; D5   ; 74373:inst97|14 ; A        ;
+; N/A           ; None        ; 3.400 ns  ; D4   ; 74373:inst94|15 ; A        ;
+; N/A           ; None        ; 3.400 ns  ; D4   ; 74373:inst96|15 ; C        ;
+; N/A           ; None        ; 3.400 ns  ; D5   ; 74373:inst95|14 ; A        ;
+; N/A           ; None        ; 3.400 ns  ; D5   ; 74373:inst97|14 ; C        ;
+; N/A           ; None        ; 3.300 ns  ; C    ; 74190:inst5|48  ; B        ;
+; N/A           ; None        ; 3.300 ns  ; D6   ; 74373:inst95|13 ; chose    ;
+; N/A           ; None        ; 3.300 ns  ; D6   ; 74373:inst95|13 ; B        ;
+; N/A           ; None        ; 3.300 ns  ; D6   ; 74373:inst97|13 ; chose    ;
+; N/A           ; None        ; 3.300 ns  ; D6   ; 74373:inst97|13 ; A        ;
+; N/A           ; None        ; 3.200 ns  ; C    ; 74190:inst5|48  ; C        ;
+; N/A           ; None        ; 3.200 ns  ; C    ; 74190:inst5|48  ; A        ;
+; N/A           ; None        ; 3.200 ns  ; D6   ; 74373:inst95|13 ; A        ;
+; N/A           ; None        ; 3.200 ns  ; D6   ; 74373:inst97|13 ; C        ;
+; N/A           ; None        ; 3.200 ns  ; D4   ; 74373:inst94|15 ; C        ;
+; N/A           ; None        ; 3.200 ns  ; D4   ; 74373:inst96|15 ; B        ;
+; N/A           ; None        ; 3.200 ns  ; D5   ; 74373:inst95|14 ; C        ;
+; N/A           ; None        ; 3.200 ns  ; D5   ; 74373:inst97|14 ; B        ;
+; N/A           ; None        ; 3.100 ns  ; B    ; 74190:inst5|48  ; B        ;
+; N/A           ; None        ; 3.100 ns  ; A    ; 74190:inst5|48  ; B        ;
+; N/A           ; None        ; 3.000 ns  ; B    ; 74190:inst5|48  ; C        ;
+; N/A           ; None        ; 3.000 ns  ; B    ; 74190:inst5|48  ; A        ;
+; N/A           ; None        ; 3.000 ns  ; A    ; 74190:inst5|48  ; C        ;
+; N/A           ; None        ; 3.000 ns  ; A    ; 74190:inst5|48  ; A        ;
+; N/A           ; None        ; 3.000 ns  ; D6   ; 74373:inst95|13 ; C        ;
+; N/A           ; None        ; 3.000 ns  ; D6   ; 74373:inst97|13 ; B        ;
+; N/A           ; None        ; 2.900 ns  ; D1   ; 74373:inst95|18 ; chose    ;
+; N/A           ; None        ; 2.900 ns  ; D1   ; 74373:inst95|18 ; B        ;
+; N/A           ; None        ; 2.900 ns  ; D1   ; 74373:inst97|18 ; chose    ;
+; N/A           ; None        ; 2.900 ns  ; D1   ; 74373:inst97|18 ; A        ;
+; N/A           ; None        ; 2.800 ns  ; D1   ; 74373:inst95|18 ; A        ;
+; N/A           ; None        ; 2.800 ns  ; D1   ; 74373:inst97|18 ; C        ;
+; N/A           ; None        ; 2.600 ns  ; D1   ; 74373:inst95|18 ; C        ;
+; N/A           ; None        ; 2.600 ns  ; D1   ; 74373:inst97|18 ; B        ;
+; N/A           ; None        ; 2.000 ns  ; D7   ; 74373:inst95|12 ; chose    ;
+; N/A           ; None        ; 2.000 ns  ; D7   ; 74373:inst95|12 ; B        ;
+; N/A           ; None        ; 2.000 ns  ; D7   ; 74373:inst97|12 ; chose    ;
+; N/A           ; None        ; 2.000 ns  ; D7   ; 74373:inst97|12 ; A        ;
+; N/A           ; None        ; 1.900 ns  ; D0   ; 74373:inst95|19 ; chose    ;
+; N/A           ; None        ; 1.900 ns  ; D0   ; 74373:inst95|19 ; B        ;
+; N/A           ; None        ; 1.900 ns  ; D0   ; 74373:inst97|19 ; chose    ;
+; N/A           ; None        ; 1.900 ns  ; D0   ; 74373:inst97|19 ; A        ;
+; N/A           ; None        ; 1.900 ns  ; D3   ; 74373:inst95|16 ; chose    ;
+; N/A           ; None        ; 1.900 ns  ; D3   ; 74373:inst95|16 ; B        ;
+; N/A           ; None        ; 1.900 ns  ; D3   ; 74373:inst97|16 ; chose    ;
+; N/A           ; None        ; 1.900 ns  ; D3   ; 74373:inst97|16 ; A        ;
+; N/A           ; None        ; 1.900 ns  ; D7   ; 74373:inst95|12 ; A        ;
+; N/A           ; None        ; 1.900 ns  ; D7   ; 74373:inst97|12 ; C        ;
+; N/A           ; None        ; 1.800 ns  ; D0   ; 74373:inst95|19 ; A        ;
+; N/A           ; None        ; 1.800 ns  ; D0   ; 74373:inst97|19 ; C        ;
+; N/A           ; None        ; 1.800 ns  ; D3   ; 74373:inst95|16 ; A        ;
+; N/A           ; None        ; 1.800 ns  ; D3   ; 74373:inst97|16 ; C        ;
+; N/A           ; None        ; 1.700 ns  ; D7   ; 74373:inst95|12 ; C        ;
+; N/A           ; None        ; 1.700 ns  ; D7   ; 74373:inst97|12 ; B        ;
+; N/A           ; None        ; 1.600 ns  ; D0   ; 74373:inst95|19 ; C        ;
+; N/A           ; None        ; 1.600 ns  ; D0   ; 74373:inst97|19 ; B        ;
+; N/A           ; None        ; 1.600 ns  ; D3   ; 74373:inst95|16 ; C        ;
+; N/A           ; None        ; 1.600 ns  ; D3   ; 74373:inst97|16 ; B        ;
+; N/A           ; None        ; 1.500 ns  ; C    ; 74190:inst5|50  ; B        ;
+; N/A           ; None        ; 1.500 ns  ; C    ; 74190:inst5|49  ; B        ;
+; N/A           ; None        ; 1.400 ns  ; C    ; 74190:inst5|50  ; C        ;
+; N/A           ; None        ; 1.400 ns  ; C    ; 74190:inst5|50  ; A        ;
+; N/A           ; None        ; 1.400 ns  ; C    ; 74190:inst5|49  ; C        ;
+; N/A           ; None        ; 1.400 ns  ; C    ; 74190:inst5|49  ; A        ;
+; N/A           ; None        ; 1.300 ns  ; B    ; 74190:inst5|50  ; B        ;
+; N/A           ; None        ; 1.300 ns  ; B    ; 74190:inst5|49  ; B        ;
+; N/A           ; None        ; 1.300 ns  ; A    ; 74190:inst5|50  ; B        ;
+; N/A           ; None        ; 1.300 ns  ; A    ; 74190:inst5|49  ; B        ;
+; N/A           ; None        ; 1.300 ns  ; C    ; 74190:inst5|51  ; B        ;
+; N/A           ; None        ; 1.200 ns  ; B    ; 74190:inst5|50  ; C        ;
+; N/A           ; None        ; 1.200 ns  ; B    ; 74190:inst5|50  ; A        ;
+; N/A           ; None        ; 1.200 ns  ; B    ; 74190:inst5|49  ; C        ;
+; N/A           ; None        ; 1.200 ns  ; B    ; 74190:inst5|49  ; A        ;
+; N/A           ; None        ; 1.200 ns  ; A    ; 74190:inst5|50  ; C        ;
+; N/A           ; None        ; 1.200 ns  ; A    ; 74190:inst5|50  ; A        ;
+; N/A           ; None        ; 1.200 ns  ; A    ; 74190:inst5|49  ; C        ;
+; N/A           ; None        ; 1.200 ns  ; A    ; 74190:inst5|49  ; A        ;
+; N/A           ; None        ; 1.200 ns  ; C    ; 74190:inst5|51  ; C        ;
+; N/A           ; None        ; 1.200 ns  ; C    ; 74190:inst5|51  ; A        ;
+; N/A           ; None        ; 1.200 ns  ; D2   ; 74373:inst95|17 ; chose    ;
+; N/A           ; None        ; 1.200 ns  ; D2   ; 74373:inst95|17 ; B        ;
+; N/A           ; None        ; 1.200 ns  ; D2   ; 74373:inst97|17 ; chose    ;
+; N/A           ; None        ; 1.200 ns  ; D2   ; 74373:inst97|17 ; A        ;
+; N/A           ; None        ; 1.100 ns  ; B    ; 74190:inst5|51  ; B        ;
+; N/A           ; None        ; 1.100 ns  ; A    ; 74190:inst5|51  ; B        ;
+; N/A           ; None        ; 1.100 ns  ; C    ; 74190:inst18|48 ; CLRN     ;
+; N/A           ; None        ; 1.100 ns  ; C    ; 74190:inst18|48 ; CLK      ;
+; N/A           ; None        ; 1.100 ns  ; D2   ; 74373:inst95|17 ; A        ;
+; N/A           ; None        ; 1.100 ns  ; D2   ; 74373:inst97|17 ; C        ;
+; N/A           ; None        ; 1.000 ns  ; B    ; 74190:inst5|51  ; C        ;
+; N/A           ; None        ; 1.000 ns  ; B    ; 74190:inst5|51  ; A        ;
+; N/A           ; None        ; 1.000 ns  ; A    ; 74190:inst5|51  ; C        ;
+; N/A           ; None        ; 1.000 ns  ; A    ; 74190:inst5|51  ; A        ;
+; N/A           ; None        ; 0.900 ns  ; B    ; 74190:inst18|48 ; CLRN     ;
+; N/A           ; None        ; 0.900 ns  ; B    ; 74190:inst18|48 ; CLK      ;
+; N/A           ; None        ; 0.900 ns  ; A    ; 74190:inst18|48 ; CLRN     ;
+; N/A           ; None        ; 0.900 ns  ; A    ; 74190:inst18|48 ; CLK      ;
+; N/A           ; None        ; 0.900 ns  ; D2   ; 74373:inst95|17 ; C        ;
+; N/A           ; None        ; 0.900 ns  ; D2   ; 74373:inst97|17 ; B        ;
+; N/A           ; None        ; -0.500 ns ; A    ; 74190:inst18|49 ; CLRN     ;
+; N/A           ; None        ; -0.500 ns ; A    ; 74190:inst18|49 ; CLK      ;
+; N/A           ; None        ; -0.500 ns ; C    ; 74190:inst18|49 ; CLRN     ;
+; N/A           ; None        ; -0.500 ns ; C    ; 74190:inst18|49 ; CLK      ;
+; N/A           ; None        ; -0.600 ns ; B    ; 74190:inst18|49 ; CLRN     ;
+; N/A           ; None        ; -0.600 ns ; B    ; 74190:inst18|49 ; CLK      ;
+; N/A           ; None        ; -2.400 ns ; A    ; 74190:inst18|50 ; CLRN     ;
+; N/A           ; None        ; -2.400 ns ; A    ; 74190:inst18|50 ; CLK      ;
+; N/A           ; None        ; -2.400 ns ; C    ; 74190:inst18|50 ; CLRN     ;
+; N/A           ; None        ; -2.400 ns ; C    ; 74190:inst18|50 ; CLK      ;
+; N/A           ; None        ; -2.500 ns ; B    ; 74190:inst18|50 ; CLRN     ;
+; N/A           ; None        ; -2.500 ns ; B    ; 74190:inst18|50 ; CLK      ;
+; N/A           ; None        ; -2.600 ns ; A    ; 74190:inst18|51 ; CLRN     ;
+; N/A           ; None        ; -2.600 ns ; A    ; 74190:inst18|51 ; CLK      ;
+; N/A           ; None        ; -2.600 ns ; C    ; 74190:inst18|51 ; CLRN     ;
+; N/A           ; None        ; -2.600 ns ; C    ; 74190:inst18|51 ; CLK      ;
+; N/A           ; None        ; -2.700 ns ; B    ; 74190:inst18|51 ; CLRN     ;
+; N/A           ; None        ; -2.700 ns ; B    ; 74190:inst18|51 ; CLK      ;
++---------------+-------------+-----------+------+-----------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Timing Analyzer
+    Info: Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+    Info: Processing started: Sun Jun 17 05:08:57 2012
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off Tlight -c Tlight
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "74373:inst95|12" is a latch
+    Warning: Node "74373:inst95|13" is a latch
+    Warning: Node "74373:inst94|15" is a latch
+    Warning: Node "74373:inst95|14" is a latch
+    Warning: Node "74373:inst95|16" is a latch
+    Warning: Node "74373:inst95|17" is a latch
+    Warning: Node "74373:inst95|18" is a latch
+    Warning: Node "74373:inst95|19" is a latch
+    Warning: Node "74373:inst97|12" is a latch
+    Warning: Node "74373:inst97|14" is a latch
+    Warning: Node "74373:inst96|15" is a latch
+    Warning: Node "74373:inst97|16" is a latch
+    Warning: Node "74373:inst97|19" is a latch
+    Warning: Node "74373:inst97|13" is a latch
+    Warning: Node "74373:inst97|17" is a latch
+    Warning: Node "74373:inst97|18" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLK" is an undefined clock
+    Info: Assuming node "CLRN" is an undefined clock
+    Info: Assuming node "C" is an undefined clock
+    Info: Assuming node "A" is an undefined clock
+    Info: Assuming node "B" is an undefined clock
+    Info: Assuming node "chose" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+Warning: Found 16 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "inst43~19" as buffer
+    Info: Detected ripple clock "74190:inst18|48" as buffer
+    Info: Detected ripple clock "74190:inst18|49" as buffer
+    Info: Detected ripple clock "74190:inst18|50" as buffer
+    Info: Detected gated clock "inst33~8" as buffer
+    Info: Detected ripple clock "74190:inst18|51" as buffer
+    Info: Detected gated clock "inst39~24" as buffer
+    Info: Detected ripple clock "74190:inst5|49" as buffer
+    Info: Detected ripple clock "74190:inst5|50" as buffer
+    Info: Detected gated clock "74190:inst18|57~22" as buffer
+    Info: Detected gated clock "74190:inst18|58~42" as buffer
+    Info: Detected ripple clock "74190:inst5|48" as buffer
+    Info: Detected ripple clock "74190:inst5|51" as buffer
+    Info: Detected gated clock "74190:inst5|57~9" as buffer
+    Info: Detected gated clock "74190:inst18|58~43" as buffer
+    Info: Detected gated clock "74190:inst5|58~28" as buffer
+Info: Clock "CLK" has Internal fmax of 81.3 MHz between source register "74190:inst5|50" and destination register "74190:inst5|50" (period= 12.3 ns)
+    Info: + Longest register to register delay is 4.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: 2: + IC(0.300 ns) + CELL(1.600 ns) = 1.900 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+        Info: 3: + IC(0.300 ns) + CELL(1.600 ns) = 3.800 ns; Loc. = LC7_C29; Fanout = 2; COMB Node = '74190:inst5|40~30'
+        Info: 4: + IC(0.300 ns) + CELL(0.800 ns) = 4.900 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: Total cell delay = 4.000 ns ( 81.63 % )
+        Info: Total interconnect delay = 0.900 ns ( 18.37 % )
+    Info: - Smallest clock skew is -6.300 ns
+        Info: + Shortest clock path from clock "CLK" to destination register is 9.500 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_133; Fanout = 3; CLK Node = 'CLK'
+            Info: 2: + IC(1.900 ns) + CELL(1.400 ns) = 8.200 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 3: + IC(1.300 ns) + CELL(0.000 ns) = 9.500 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 6.300 ns ( 66.32 % )
+            Info: Total interconnect delay = 3.200 ns ( 33.68 % )
+        Info: - Longest clock path from clock "CLK" to source register is 15.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_133; Fanout = 3; CLK Node = 'CLK'
+            Info: 2: + IC(1.900 ns) + CELL(1.600 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+            Info: 3: + IC(1.200 ns) + CELL(0.500 ns) = 10.100 ns; Loc. = LC2_C32; Fanout = 5; REG Node = '74190:inst18|48'
+            Info: 4: + IC(0.300 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 5: + IC(1.000 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 6: + IC(1.300 ns) + CELL(0.000 ns) = 15.800 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 10.100 ns ( 63.92 % )
+            Info: Total interconnect delay = 5.700 ns ( 36.08 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Micro setup delay of destination is 0.600 ns
+Info: Clock "CLRN" has Internal fmax of 84.03 MHz between source register "74190:inst5|50" and destination register "74190:inst5|50" (period= 11.9 ns)
+    Info: + Longest register to register delay is 4.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: 2: + IC(0.300 ns) + CELL(1.600 ns) = 1.900 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+        Info: 3: + IC(0.300 ns) + CELL(1.600 ns) = 3.800 ns; Loc. = LC7_C29; Fanout = 2; COMB Node = '74190:inst5|40~30'
+        Info: 4: + IC(0.300 ns) + CELL(0.800 ns) = 4.900 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: Total cell delay = 4.000 ns ( 81.63 % )
+        Info: Total interconnect delay = 0.900 ns ( 18.37 % )
+    Info: - Smallest clock skew is -5.900 ns
+        Info: + Shortest clock path from clock "CLRN" to destination register is 9.900 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_131; Fanout = 7; CLK Node = 'CLRN'
+            Info: 2: + IC(2.100 ns) + CELL(1.600 ns) = 8.600 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 3: + IC(1.300 ns) + CELL(0.000 ns) = 9.900 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 6.500 ns ( 65.66 % )
+            Info: Total interconnect delay = 3.400 ns ( 34.34 % )
+        Info: - Longest clock path from clock "CLRN" to source register is 15.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_131; Fanout = 7; CLK Node = 'CLRN'
+            Info: 2: + IC(2.100 ns) + CELL(1.400 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+            Info: 3: + IC(1.200 ns) + CELL(0.500 ns) = 10.100 ns; Loc. = LC2_C32; Fanout = 5; REG Node = '74190:inst18|48'
+            Info: 4: + IC(0.300 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 5: + IC(1.000 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 6: + IC(1.300 ns) + CELL(0.000 ns) = 15.800 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 9.900 ns ( 62.66 % )
+            Info: Total interconnect delay = 5.900 ns ( 37.34 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Micro setup delay of destination is 0.600 ns
+Info: Clock "C" has Internal fmax of 166.67 MHz between source register "74190:inst5|50" and destination register "74190:inst5|50" (period= 6.0 ns)
+    Info: + Longest register to register delay is 4.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: 2: + IC(0.300 ns) + CELL(1.600 ns) = 1.900 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+        Info: 3: + IC(0.300 ns) + CELL(1.600 ns) = 3.800 ns; Loc. = LC7_C29; Fanout = 2; COMB Node = '74190:inst5|40~30'
+        Info: 4: + IC(0.300 ns) + CELL(0.800 ns) = 4.900 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: Total cell delay = 4.000 ns ( 81.63 % )
+        Info: Total interconnect delay = 0.900 ns ( 18.37 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "C" to destination register is 12.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_132; Fanout = 4; CLK Node = 'C'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.000 ns) = 12.700 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 8.200 ns ( 64.57 % )
+            Info: Total interconnect delay = 4.500 ns ( 35.43 % )
+        Info: - Longest clock path from clock "C" to source register is 12.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_132; Fanout = 4; CLK Node = 'C'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.000 ns) = 12.700 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 8.200 ns ( 64.57 % )
+            Info: Total interconnect delay = 4.500 ns ( 35.43 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Micro setup delay of destination is 0.600 ns
+Info: Clock "A" has Internal fmax of 166.67 MHz between source register "74190:inst5|50" and destination register "74190:inst5|50" (period= 6.0 ns)
+    Info: + Longest register to register delay is 4.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: 2: + IC(0.300 ns) + CELL(1.600 ns) = 1.900 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+        Info: 3: + IC(0.300 ns) + CELL(1.600 ns) = 3.800 ns; Loc. = LC7_C29; Fanout = 2; COMB Node = '74190:inst5|40~30'
+        Info: 4: + IC(0.300 ns) + CELL(0.800 ns) = 4.900 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: Total cell delay = 4.000 ns ( 81.63 % )
+        Info: Total interconnect delay = 0.900 ns ( 18.37 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "A" to destination register is 12.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_136; Fanout = 4; CLK Node = 'A'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.000 ns) = 12.700 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 8.200 ns ( 64.57 % )
+            Info: Total interconnect delay = 4.500 ns ( 35.43 % )
+        Info: - Longest clock path from clock "A" to source register is 12.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_136; Fanout = 4; CLK Node = 'A'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.000 ns) = 12.700 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 8.200 ns ( 64.57 % )
+            Info: Total interconnect delay = 4.500 ns ( 35.43 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Micro setup delay of destination is 0.600 ns
+Info: Clock "B" has Internal fmax of 166.67 MHz between source register "74190:inst5|50" and destination register "74190:inst5|50" (period= 6.0 ns)
+    Info: + Longest register to register delay is 4.900 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: 2: + IC(0.300 ns) + CELL(1.600 ns) = 1.900 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+        Info: 3: + IC(0.300 ns) + CELL(1.600 ns) = 3.800 ns; Loc. = LC7_C29; Fanout = 2; COMB Node = '74190:inst5|40~30'
+        Info: 4: + IC(0.300 ns) + CELL(0.800 ns) = 4.900 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: Total cell delay = 4.000 ns ( 81.63 % )
+        Info: Total interconnect delay = 0.900 ns ( 18.37 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "B" to destination register is 12.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_135; Fanout = 4; CLK Node = 'B'
+            Info: 2: + IC(2.200 ns) + CELL(1.700 ns) = 8.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.000 ns) = 12.800 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 8.300 ns ( 64.84 % )
+            Info: Total interconnect delay = 4.500 ns ( 35.16 % )
+        Info: - Longest clock path from clock "B" to source register is 12.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_135; Fanout = 4; CLK Node = 'B'
+            Info: 2: + IC(2.200 ns) + CELL(1.700 ns) = 8.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.000 ns) = 12.800 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: Total cell delay = 8.300 ns ( 64.84 % )
+            Info: Total interconnect delay = 4.500 ns ( 35.16 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Micro setup delay of destination is 0.600 ns
+Warning: Circuit may not operate. Detected 16 non-operational path(s) clocked by clock "CLK" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "Q:inst12|7476:inst|7" and destination pin or register "Q:inst12|7476:inst|7" for clock "CLK" (Hold time is 8.6 ns)
+    Info: + Largest clock skew is 8.900 ns
+        Info: + Longest clock path from clock "CLK" to destination register is 24.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_133; Fanout = 3; CLK Node = 'CLK'
+            Info: 2: + IC(1.900 ns) + CELL(1.600 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+            Info: 3: + IC(1.200 ns) + CELL(0.500 ns) = 10.100 ns; Loc. = LC2_C32; Fanout = 5; REG Node = '74190:inst18|48'
+            Info: 4: + IC(0.300 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 5: + IC(1.000 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 6: + IC(1.300 ns) + CELL(0.500 ns) = 16.300 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: 7: + IC(0.300 ns) + CELL(1.600 ns) = 18.200 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+            Info: 8: + IC(0.300 ns) + CELL(1.600 ns) = 20.100 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 9: + IC(4.700 ns) + CELL(0.000 ns) = 24.800 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 13.800 ns ( 55.65 % )
+            Info: Total interconnect delay = 11.000 ns ( 44.35 % )
+        Info: - Shortest clock path from clock "CLK" to source register is 15.900 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_133; Fanout = 3; CLK Node = 'CLK'
+            Info: 2: + IC(1.900 ns) + CELL(1.400 ns) = 8.200 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 3: + IC(1.300 ns) + CELL(1.700 ns) = 11.200 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 4: + IC(4.700 ns) + CELL(0.000 ns) = 15.900 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 8.000 ns ( 50.31 % )
+            Info: Total interconnect delay = 7.900 ns ( 49.69 % )
+    Info: - Micro clock to output delay of source is 0.500 ns
+    Info: - Shortest register to register delay is 1.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: Total cell delay = 0.800 ns ( 72.73 % )
+        Info: Total interconnect delay = 0.300 ns ( 27.27 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+Warning: Circuit may not operate. Detected 16 non-operational path(s) clocked by clock "CLRN" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "Q:inst12|7476:inst|7" and destination pin or register "Q:inst12|7476:inst|7" for clock "CLRN" (Hold time is 8.2 ns)
+    Info: + Largest clock skew is 8.500 ns
+        Info: + Longest clock path from clock "CLRN" to destination register is 24.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_131; Fanout = 7; CLK Node = 'CLRN'
+            Info: 2: + IC(2.100 ns) + CELL(1.400 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+            Info: 3: + IC(1.200 ns) + CELL(0.500 ns) = 10.100 ns; Loc. = LC2_C32; Fanout = 5; REG Node = '74190:inst18|48'
+            Info: 4: + IC(0.300 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 5: + IC(1.000 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 6: + IC(1.300 ns) + CELL(0.500 ns) = 16.300 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: 7: + IC(0.300 ns) + CELL(1.600 ns) = 18.200 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+            Info: 8: + IC(0.300 ns) + CELL(1.600 ns) = 20.100 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 9: + IC(4.700 ns) + CELL(0.000 ns) = 24.800 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 13.600 ns ( 54.84 % )
+            Info: Total interconnect delay = 11.200 ns ( 45.16 % )
+        Info: - Shortest clock path from clock "CLRN" to source register is 16.300 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_131; Fanout = 7; CLK Node = 'CLRN'
+            Info: 2: + IC(2.100 ns) + CELL(1.600 ns) = 8.600 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 3: + IC(1.300 ns) + CELL(1.700 ns) = 11.600 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 4: + IC(4.700 ns) + CELL(0.000 ns) = 16.300 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 8.200 ns ( 50.31 % )
+            Info: Total interconnect delay = 8.100 ns ( 49.69 % )
+    Info: - Micro clock to output delay of source is 0.500 ns
+    Info: - Shortest register to register delay is 1.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: Total cell delay = 0.800 ns ( 72.73 % )
+        Info: Total interconnect delay = 0.300 ns ( 27.27 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+Warning: Circuit may not operate. Detected 3 non-operational path(s) clocked by clock "C" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "Q:inst12|7476:inst|7" and destination pin or register "Q:inst12|7476:inst|7" for clock "C" (Hold time is 2.3 ns)
+    Info: + Largest clock skew is 2.600 ns
+        Info: + Longest clock path from clock "C" to destination register is 21.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_132; Fanout = 4; CLK Node = 'C'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.500 ns) = 13.200 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: 5: + IC(0.300 ns) + CELL(1.600 ns) = 15.100 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+            Info: 6: + IC(0.300 ns) + CELL(1.600 ns) = 17.000 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 7: + IC(4.700 ns) + CELL(0.000 ns) = 21.700 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 11.900 ns ( 54.84 % )
+            Info: Total interconnect delay = 9.800 ns ( 45.16 % )
+        Info: - Shortest clock path from clock "C" to source register is 19.100 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_132; Fanout = 4; CLK Node = 'C'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(1.700 ns) = 14.400 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 5: + IC(4.700 ns) + CELL(0.000 ns) = 19.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 9.900 ns ( 51.83 % )
+            Info: Total interconnect delay = 9.200 ns ( 48.17 % )
+    Info: - Micro clock to output delay of source is 0.500 ns
+    Info: - Shortest register to register delay is 1.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: Total cell delay = 0.800 ns ( 72.73 % )
+        Info: Total interconnect delay = 0.300 ns ( 27.27 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+Warning: Circuit may not operate. Detected 3 non-operational path(s) clocked by clock "A" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "Q:inst12|7476:inst|7" and destination pin or register "Q:inst12|7476:inst|7" for clock "A" (Hold time is 2.3 ns)
+    Info: + Largest clock skew is 2.600 ns
+        Info: + Longest clock path from clock "A" to destination register is 21.700 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_136; Fanout = 4; CLK Node = 'A'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.500 ns) = 13.200 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: 5: + IC(0.300 ns) + CELL(1.600 ns) = 15.100 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+            Info: 6: + IC(0.300 ns) + CELL(1.600 ns) = 17.000 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 7: + IC(4.700 ns) + CELL(0.000 ns) = 21.700 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 11.900 ns ( 54.84 % )
+            Info: Total interconnect delay = 9.800 ns ( 45.16 % )
+        Info: - Shortest clock path from clock "A" to source register is 19.100 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_136; Fanout = 4; CLK Node = 'A'
+            Info: 2: + IC(2.200 ns) + CELL(1.600 ns) = 8.700 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.400 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(1.700 ns) = 14.400 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 5: + IC(4.700 ns) + CELL(0.000 ns) = 19.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 9.900 ns ( 51.83 % )
+            Info: Total interconnect delay = 9.200 ns ( 48.17 % )
+    Info: - Micro clock to output delay of source is 0.500 ns
+    Info: - Shortest register to register delay is 1.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: Total cell delay = 0.800 ns ( 72.73 % )
+        Info: Total interconnect delay = 0.300 ns ( 27.27 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+Warning: Circuit may not operate. Detected 3 non-operational path(s) clocked by clock "B" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "Q:inst12|7476:inst|7" and destination pin or register "Q:inst12|7476:inst|7" for clock "B" (Hold time is 2.3 ns)
+    Info: + Largest clock skew is 2.600 ns
+        Info: + Longest clock path from clock "B" to destination register is 21.800 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_135; Fanout = 4; CLK Node = 'B'
+            Info: 2: + IC(2.200 ns) + CELL(1.700 ns) = 8.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(0.500 ns) = 13.300 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+            Info: 5: + IC(0.300 ns) + CELL(1.600 ns) = 15.200 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+            Info: 6: + IC(0.300 ns) + CELL(1.600 ns) = 17.100 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 7: + IC(4.700 ns) + CELL(0.000 ns) = 21.800 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 12.000 ns ( 55.05 % )
+            Info: Total interconnect delay = 9.800 ns ( 44.95 % )
+        Info: - Shortest clock path from clock "B" to source register is 19.200 ns
+            Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_135; Fanout = 4; CLK Node = 'B'
+            Info: 2: + IC(2.200 ns) + CELL(1.700 ns) = 8.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+            Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 11.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+            Info: 4: + IC(1.300 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+            Info: 5: + IC(4.700 ns) + CELL(0.000 ns) = 19.200 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+            Info: Total cell delay = 10.000 ns ( 52.08 % )
+            Info: Total interconnect delay = 9.200 ns ( 47.92 % )
+    Info: - Micro clock to output delay of source is 0.500 ns
+    Info: - Shortest register to register delay is 1.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: 2: + IC(0.300 ns) + CELL(0.800 ns) = 1.100 ns; Loc. = LC7_C36; Fanout = 27; REG Node = 'Q:inst12|7476:inst|7'
+        Info: Total cell delay = 0.800 ns ( 72.73 % )
+        Info: Total interconnect delay = 0.300 ns ( 27.27 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+Info: tsu for register "74190:inst18|51" (data pin = "B", clock pin = "CLRN") is 4.600 ns
+    Info: + Longest pin to register delay is 12.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_135; Fanout = 4; CLK Node = 'B'
+        Info: 2: + IC(2.200 ns) + CELL(1.700 ns) = 8.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+        Info: 3: + IC(1.000 ns) + CELL(1.600 ns) = 11.400 ns; Loc. = LC6_C33; Fanout = 1; COMB Node = '74190:inst18|39'
+        Info: 4: + IC(0.300 ns) + CELL(1.000 ns) = 12.700 ns; Loc. = LC2_C33; Fanout = 6; REG Node = '74190:inst18|51'
+        Info: Total cell delay = 9.200 ns ( 72.44 % )
+        Info: Total interconnect delay = 3.500 ns ( 27.56 % )
+    Info: + Micro setup delay of destination is 0.600 ns
+    Info: - Shortest clock path from clock "CLRN" to destination register is 8.700 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_131; Fanout = 7; CLK Node = 'CLRN'
+        Info: 2: + IC(2.100 ns) + CELL(1.400 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+        Info: 3: + IC(0.300 ns) + CELL(0.000 ns) = 8.700 ns; Loc. = LC2_C33; Fanout = 6; REG Node = '74190:inst18|51'
+        Info: Total cell delay = 6.300 ns ( 72.41 % )
+        Info: Total interconnect delay = 2.400 ns ( 27.59 % )
+Info: tco from clock "CLK" to destination pin "NS7" through register "Q:inst12|7476:inst|8" is 83.900 ns
+    Info: + Longest clock path from clock "CLK" to source register is 24.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_133; Fanout = 3; CLK Node = 'CLK'
+        Info: 2: + IC(1.900 ns) + CELL(1.600 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+        Info: 3: + IC(1.200 ns) + CELL(0.500 ns) = 10.100 ns; Loc. = LC2_C32; Fanout = 5; REG Node = '74190:inst18|48'
+        Info: 4: + IC(0.300 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+        Info: 5: + IC(1.000 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+        Info: 6: + IC(1.300 ns) + CELL(0.500 ns) = 16.300 ns; Loc. = LC4_C29; Fanout = 7; REG Node = '74190:inst5|50'
+        Info: 7: + IC(0.300 ns) + CELL(1.600 ns) = 18.200 ns; Loc. = LC3_C29; Fanout = 2; COMB Node = '74190:inst5|57~9'
+        Info: 8: + IC(0.300 ns) + CELL(1.600 ns) = 20.100 ns; Loc. = LC1_C29; Fanout = 10; COMB Node = '74190:inst5|58~28'
+        Info: 9: + IC(4.700 ns) + CELL(0.000 ns) = 24.800 ns; Loc. = LC6_C36; Fanout = 29; REG Node = 'Q:inst12|7476:inst|8'
+        Info: Total cell delay = 13.800 ns ( 55.65 % )
+        Info: Total interconnect delay = 11.000 ns ( 44.35 % )
+    Info: + Micro clock to output delay of source is 0.500 ns
+    Info: + Longest register to pin delay is 58.600 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC6_C36; Fanout = 29; REG Node = 'Q:inst12|7476:inst|8'
+        Info: 2: + IC(2.600 ns) + CELL(1.400 ns) = 4.000 ns; Loc. = LC3_C12; Fanout = 3; COMB Node = 'choseGY:inst49|chosesGY:inst7|inst15~13'
+        Info: 3: + IC(0.300 ns) + CELL(0.700 ns) = 5.000 ns; Loc. = LC1_C12; Fanout = 1; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|88'
+        Info: 4: + IC(0.000 ns) + CELL(1.400 ns) = 6.400 ns; Loc. = LC2_C12; Fanout = 2; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|88~18'
+        Info: 5: + IC(1.300 ns) + CELL(1.700 ns) = 9.400 ns; Loc. = LC6_C10; Fanout = 1; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|105~8'
+        Info: 6: + IC(0.300 ns) + CELL(0.700 ns) = 10.400 ns; Loc. = LC1_C10; Fanout = 1; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|89'
+        Info: 7: + IC(0.000 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC2_C10; Fanout = 2; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|89~8'
+        Info: 8: + IC(1.400 ns) + CELL(1.700 ns) = 14.900 ns; Loc. = LC1_C9; Fanout = 2; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|106~8'
+        Info: 9: + IC(2.000 ns) + CELL(1.700 ns) = 18.600 ns; Loc. = LC7_C20; Fanout = 1; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|107~8'
+        Info: 10: + IC(1.400 ns) + CELL(0.700 ns) = 20.700 ns; Loc. = LC6_C35; Fanout = 1; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|91'
+        Info: 11: + IC(0.000 ns) + CELL(1.400 ns) = 22.100 ns; Loc. = LC7_C35; Fanout = 6; COMB Node = 'Count:inst22|inst5~18'
+        Info: 12: + IC(2.400 ns) + CELL(1.600 ns) = 26.100 ns; Loc. = LC7_C8; Fanout = 2; COMB Node = 'Count:inst22|74283:inst|f74283:sub|104~10'
+        Info: 13: + IC(0.300 ns) + CELL(0.700 ns) = 27.100 ns; Loc. = LC5_C8; Fanout = 1; COMB Node = 'Count:inst22|74283:inst|f74283:sub|88~6'
+        Info: 14: + IC(0.000 ns) + CELL(1.400 ns) = 28.500 ns; Loc. = LC6_C8; Fanout = 2; COMB Node = 'Count:inst22|74283:inst|f74283:sub|105~10'
+        Info: 15: + IC(2.100 ns) + CELL(1.700 ns) = 32.300 ns; Loc. = LC1_C30; Fanout = 2; COMB Node = 'Count:inst22|74283:inst|f74283:sub|106~8'
+        Info: 16: + IC(0.300 ns) + CELL(1.700 ns) = 34.300 ns; Loc. = LC8_C30; Fanout = 1; COMB Node = 'Count:inst22|74283:inst|f74283:sub|107~8'
+        Info: 17: + IC(1.300 ns) + CELL(0.700 ns) = 36.300 ns; Loc. = LC6_C31; Fanout = 1; COMB Node = 'Count:inst22|74283:inst|f74283:sub|91'
+        Info: 18: + IC(0.000 ns) + CELL(1.400 ns) = 37.700 ns; Loc. = LC7_C31; Fanout = 4; COMB Node = 'Count:inst22|inst9'
+        Info: 19: + IC(0.300 ns) + CELL(1.700 ns) = 39.700 ns; Loc. = LC8_C31; Fanout = 2; COMB Node = 'Count:inst22|74283:inst8|f74283:sub|97'
+        Info: 20: + IC(0.300 ns) + CELL(1.400 ns) = 41.400 ns; Loc. = LC5_C31; Fanout = 1; COMB Node = 'Count:inst22|74283:inst8|f74283:sub|106~10'
+        Info: 21: + IC(0.300 ns) + CELL(1.600 ns) = 43.300 ns; Loc. = LC2_C31; Fanout = 2; COMB Node = 'Count:inst22|74283:inst8|f74283:sub|83'
+        Info: 22: + IC(1.000 ns) + CELL(1.600 ns) = 45.900 ns; Loc. = LC1_C34; Fanout = 1; COMB Node = 'choseR:inst58|inst8~157'
+        Info: 23: + IC(1.300 ns) + CELL(1.600 ns) = 48.800 ns; Loc. = LC6_C31; Fanout = 1; COMB Node = 'Count:inst22|74283:inst|f74283:sub|91~10'
+        Info: 24: + IC(1.300 ns) + CELL(1.400 ns) = 51.500 ns; Loc. = LC2_C34; Fanout = 1; COMB Node = 'NS7~0'
+        Info: 25: + IC(0.800 ns) + CELL(6.300 ns) = 58.600 ns; Loc. = PIN_38; Fanout = 0; PIN Node = 'NS7'
+        Info: Total cell delay = 37.600 ns ( 64.16 % )
+        Info: Total interconnect delay = 21.000 ns ( 35.84 % )
+Info: Longest tpd from source pin "STOPNSG" to destination pin "NS3" is 24.800 ns
+    Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_21; Fanout = 3; PIN Node = 'STOPNSG'
+    Info: 2: + IC(2.800 ns) + CELL(1.700 ns) = 9.400 ns; Loc. = LC8_C34; Fanout = 21; COMB Node = 'inst1'
+    Info: 3: + IC(1.000 ns) + CELL(1.700 ns) = 12.100 ns; Loc. = LC4_C35; Fanout = 1; COMB Node = 'choseR:inst58|inst24~171'
+    Info: 4: + IC(0.300 ns) + CELL(1.600 ns) = 14.000 ns; Loc. = LC6_C35; Fanout = 1; COMB Node = 'Count:inst22|74283:inst1|f74283:sub|91~10'
+    Info: 5: + IC(2.300 ns) + CELL(1.400 ns) = 17.700 ns; Loc. = LC8_C7; Fanout = 1; COMB Node = 'NS3~0'
+    Info: 6: + IC(0.800 ns) + CELL(6.300 ns) = 24.800 ns; Loc. = PIN_68; Fanout = 0; PIN Node = 'NS3'
+    Info: Total cell delay = 17.600 ns ( 70.97 % )
+    Info: Total interconnect delay = 7.200 ns ( 29.03 % )
+Info: th for register "74190:inst5|48" (data pin = "C", clock pin = "CLK") is 6.300 ns
+    Info: + Longest clock path from clock "CLK" to destination register is 15.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_133; Fanout = 3; CLK Node = 'CLK'
+        Info: 2: + IC(1.900 ns) + CELL(1.600 ns) = 8.400 ns; Loc. = LC4_C33; Fanout = 4; COMB Node = 'inst33~8'
+        Info: 3: + IC(1.200 ns) + CELL(0.500 ns) = 10.100 ns; Loc. = LC2_C32; Fanout = 5; REG Node = '74190:inst18|48'
+        Info: 4: + IC(0.300 ns) + CELL(1.400 ns) = 11.800 ns; Loc. = LC1_C32; Fanout = 4; COMB Node = '74190:inst18|58~42'
+        Info: 5: + IC(1.000 ns) + CELL(1.700 ns) = 14.500 ns; Loc. = LC8_C33; Fanout = 5; COMB Node = '74190:inst18|58~43'
+        Info: 6: + IC(1.300 ns) + CELL(0.000 ns) = 15.800 ns; Loc. = LC5_C29; Fanout = 8; REG Node = '74190:inst5|48'
+        Info: Total cell delay = 10.100 ns ( 63.92 % )
+        Info: Total interconnect delay = 5.700 ns ( 36.08 % )
+    Info: + Micro hold delay of destination is 1.300 ns
+    Info: - Shortest pin to register delay is 10.800 ns
+        Info: 1: + IC(0.000 ns) + CELL(4.900 ns) = 4.900 ns; Loc. = PIN_132; Fanout = 4; CLK Node = 'C'
+        Info: 2: + IC(2.200 ns) + CELL(1.400 ns) = 8.500 ns; Loc. = LC5_C32; Fanout = 4; COMB Node = '74138:inst67|22~9'
+        Info: 3: + IC(1.300 ns) + CELL(1.000 ns) = 10.800 ns; Loc. = LC5_C29; Fanout = 8; REG Node = '74190:inst5|48'
+        Info: Total cell delay = 7.300 ns ( 67.59 % )
+        Info: Total interconnect delay = 3.500 ns ( 32.41 % )
+Info: Quartus II Timing Analyzer was successful. 0 errors, 24 warnings
+    Info: Processing ended: Sun Jun 17 05:08:58 2012
+    Info: Elapsed time: 00:00:01
+
+

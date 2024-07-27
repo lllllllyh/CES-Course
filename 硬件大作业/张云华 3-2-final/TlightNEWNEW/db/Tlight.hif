@@ -1,0 +1,787 @@
+Version 6.0 Build 202 06/20/2006 Service Pack 1 SJ Full Version
+2
+24
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+TL
+# storage
+db|Tlight.(1).cnf
+db|Tlight.(1).cnf
+# case_insensitive
+# source_file
+TL.bdf
+fe8d49591bf22d977558dc428fe9943
+24
+# hierarchies {
+TL:inst
+}
+# end
+# entity
+choseGY
+# storage
+db|Tlight.(6).cnf
+db|Tlight.(6).cnf
+# case_insensitive
+# source_file
+choseGY.bdf
+ead0cc777a13ae6212cdfe4cb8eecb
+24
+# hierarchies {
+choseGY:inst46
+choseGY:inst49
+}
+# end
+# entity
+chosesGY
+# storage
+db|Tlight.(7).cnf
+db|Tlight.(7).cnf
+# case_insensitive
+# source_file
+chosesGY.bdf
+83f7652aeb07e1e563dd943cacb4f9a
+24
+# hierarchies {
+choseGY:inst46|chosesGY:inst7
+choseGY:inst46|chosesGY:inst6
+choseGY:inst46|chosesGY:inst5
+choseGY:inst46|chosesGY:inst4
+choseGY:inst46|chosesGY:inst3
+choseGY:inst46|chosesGY:inst2
+choseGY:inst46|chosesGY:inst1
+choseGY:inst46|chosesGY:inst8
+choseGY:inst49|chosesGY:inst7
+choseGY:inst49|chosesGY:inst6
+choseGY:inst49|chosesGY:inst5
+choseGY:inst49|chosesGY:inst4
+choseGY:inst49|chosesGY:inst3
+choseGY:inst49|chosesGY:inst2
+choseGY:inst49|chosesGY:inst1
+choseGY:inst49|chosesGY:inst8
+}
+# end
+# entity
+choseR
+# storage
+db|Tlight.(10).cnf
+db|Tlight.(10).cnf
+# case_insensitive
+# source_file
+choseR.bdf
+b82de41be4e1a7ae5baf7ac3e885c5f
+24
+# hierarchies {
+choseR:inst57
+choseR:inst58
+}
+# end
+# entity
+Q
+# storage
+db|Tlight.(11).cnf
+db|Tlight.(11).cnf
+# case_insensitive
+# source_file
+Q.bdf
+5fcef59d988366dc987c63841d8695a
+24
+# hierarchies {
+Q:inst12
+}
+# end
+# entity
+Count
+# storage
+db|Tlight.(13).cnf
+db|Tlight.(13).cnf
+# case_insensitive
+# source_file
+Count.bdf
+6121dc33d15ee3c1153d34cf145dc380
+24
+# hierarchies {
+Count:inst22
+}
+# end
+# entity
+t1
+# storage
+db|Tlight.(15).cnf
+db|Tlight.(15).cnf
+# case_insensitive
+# source_file
+t1.bdf
+c8ede8ba1e1dcbeb0222350f8f7874b
+24
+# hierarchies {
+t1:inst14
+}
+# end
+# entity
+74139M
+# storage
+db|Tlight.(2).cnf
+db|Tlight.(2).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74139M.bdf
+598561d44a73c1df1398344ebbd2d3c8
+24
+# end
+# entity
+7476
+# storage
+db|Tlight.(3).cnf
+db|Tlight.(3).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|7476.bdf
+f697cf87a1ec6cadb271ba1636e41c93
+24
+# end
+# entity
+74190
+# storage
+db|Tlight.(4).cnf
+db|Tlight.(4).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74190.bdf
+a0413bccd9ac2c3b15fd9f3bf36665e
+24
+# end
+# entity
+74373
+# storage
+db|Tlight.(5).cnf
+db|Tlight.(5).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74373.bdf
+8c84686c38c714d4de54e5f3f833e9a
+24
+# end
+# entity
+74138
+# storage
+db|Tlight.(8).cnf
+db|Tlight.(8).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74138.bdf
+6cadbea2e3f85766eb8e4e262292077
+24
+# end
+# entity
+74283
+# storage
+db|Tlight.(9).cnf
+db|Tlight.(9).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+6
+# user_parameter {
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+COUT
+-1
+3
+CIN
+-1
+3
+B4
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+B1
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+}
+# include_file {
+..|..|..|..|..|..|altera|quartus60|libraries|megafunctions|aglobal.inc
+b3d07c643dae10ab2b3e646e99ec45fc
+}
+# end
+# entity
+f74283
+# storage
+db|Tlight.(12).cnf
+db|Tlight.(12).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|f74283.bdf
+b45e4656835020a67cdadbd5db6856b
+24
+# end
+# entity
+74283
+# storage
+db|Tlight.(14).cnf
+db|Tlight.(14).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+6
+# user_parameter {
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+COUT
+-1
+3
+B4
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+B1
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+}
+# include_file {
+..|..|..|..|..|..|altera|quartus60|libraries|megafunctions|aglobal.inc
+b3d07c643dae10ab2b3e646e99ec45fc
+}
+# end
+# entity
+74283
+# storage
+db|Tlight.(16).cnf
+db|Tlight.(16).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+6
+# user_parameter {
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+B4
+-1
+1
+B1
+-1
+1
+}
+# include_file {
+..|..|..|..|..|..|altera|quartus60|libraries|megafunctions|aglobal.inc
+b3d07c643dae10ab2b3e646e99ec45fc
+}
+# end
+# entity
+74283
+# storage
+db|Tlight.(17).cnf
+db|Tlight.(17).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+6
+# user_parameter {
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+COUT
+-1
+3
+CIN
+-1
+3
+B4
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+B1
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|quartus60|libraries|megafunctions|aglobal.inc
+b3d07c643dae10ab2b3e646e99ec45fc
+}
+# hierarchies {
+Count:inst22|74283:inst
+}
+# end
+# entity
+f74283
+# storage
+db|Tlight.(18).cnf
+db|Tlight.(18).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|f74283.bdf
+b45e4656835020a67cdadbd5db6856b
+24
+# hierarchies {
+Count:inst22|74283:inst|f74283:sub
+Count:inst22|74283:inst1|f74283:sub
+Count:inst22|74283:inst8|f74283:sub
+Count:inst22|74283:inst6|f74283:sub
+}
+# end
+# entity
+74283
+# storage
+db|Tlight.(19).cnf
+db|Tlight.(19).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+6
+# user_parameter {
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+COUT
+-1
+3
+B4
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+B1
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+}
+# include_file {
+..|..|..|..|..|altera|quartus60|libraries|megafunctions|aglobal.inc
+b3d07c643dae10ab2b3e646e99ec45fc
+}
+# hierarchies {
+Count:inst22|74283:inst1
+}
+# end
+# entity
+74283
+# storage
+db|Tlight.(20).cnf
+db|Tlight.(20).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74283.tdf
+2211a54645ba55555e4f1cce9b95c8f
+6
+# user_parameter {
+DEVICE_FAMILY
+ACEX1K
+PARAMETER_UNKNOWN
+USR
+AUTO_CARRY_CHAINS
+ON
+AUTO_CARRY
+USR
+IGNORE_CARRY_BUFFERS
+OFF
+IGNORE_CARRY
+USR
+AUTO_CASCADE_CHAINS
+ON
+AUTO_CASCADE
+USR
+IGNORE_CASCADE_BUFFERS
+OFF
+IGNORE_CASCADE
+USR
+}
+# used_port {
+SUM4
+-1
+3
+SUM3
+-1
+3
+SUM2
+-1
+3
+SUM1
+-1
+3
+B3
+-1
+3
+B2
+-1
+3
+A4
+-1
+3
+A3
+-1
+3
+A2
+-1
+3
+A1
+-1
+3
+B4
+-1
+1
+B1
+-1
+1
+}
+# include_file {
+..|..|..|..|..|altera|quartus60|libraries|megafunctions|aglobal.inc
+b3d07c643dae10ab2b3e646e99ec45fc
+}
+# hierarchies {
+Count:inst22|74283:inst8
+Count:inst22|74283:inst6
+}
+# end
+# entity
+74190
+# storage
+db|Tlight.(21).cnf
+db|Tlight.(21).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74190.bdf
+a0413bccd9ac2c3b15fd9f3bf36665e
+24
+# hierarchies {
+74190:inst5
+74190:inst18
+}
+# end
+# entity
+74373
+# storage
+db|Tlight.(22).cnf
+db|Tlight.(22).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74373.bdf
+8c84686c38c714d4de54e5f3f833e9a
+24
+# hierarchies {
+74373:inst94
+74373:inst95
+74373:inst96
+74373:inst97
+}
+# end
+# entity
+74138
+# storage
+db|Tlight.(23).cnf
+db|Tlight.(23).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74138.bdf
+6cadbea2e3f85766eb8e4e262292077
+24
+# hierarchies {
+74138:inst67
+}
+# end
+# entity
+7476
+# storage
+db|Tlight.(24).cnf
+db|Tlight.(24).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|7476.bdf
+f697cf87a1ec6cadb271ba1636e41c93
+24
+# hierarchies {
+Q:inst12|7476:inst
+}
+# end
+# entity
+74139M
+# storage
+db|Tlight.(25).cnf
+db|Tlight.(25).cnf
+# case_insensitive
+# source_file
+..|..|..|..|..|altera|quartus60|libraries|others|maxplus2|74139M.bdf
+598561d44a73c1df1398344ebbd2d3c8
+24
+# hierarchies {
+t1:inst14|74139M:inst
+}
+# end
+# entity
+Tlingt
+# storage
+db|Tlight.(0).cnf
+db|Tlight.(0).cnf
+# case_insensitive
+# source_file
+Tlingt.bdf
+642ca9ac3b66143d7675d399e752ecc
+24
+# hierarchies {
+|
+}
+# end
+# complete
+
